@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Obstoj.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+   function test(n)
+   {
+      //lokalna spremenljivka j:
+      var j;
+      
+      document.write("V funkciji test(): ");
+      document.write("j = " + j + "<br />");
+      /*čeprav j postavimo na 1, se
+      bo tudi ob naslednjem klicu funkcije
+      izpisala vrednost undefined, saj
+      se vmes izvajanje funkcije konča
+      in spremenljivka preneha obstajati*/
+      j = 1;
+   }
+// -->
+</script>
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+<!--
+   var j = 10;
+   /*Globalna spremenljivka j v času izvajanja
+     funkcije test() sicer ni dostopna,
+     ker jo zakrije lokalna spremenljivka,
+     obstaja pa ves čas. */
+   document.write("Pred klicem funkcije test(): ");
+   document.write("j = " + j + "<br />");
+   test();
+   /*j ohrani svojo vrednost tudi po klicu 
+   funkcije test: */
+   document.write("Po klicu funkcije test(): ");
+   document.write("j = " + j + "<br />");
+   test();
+// -->
+</script>
+
+</body>
+</html> 
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

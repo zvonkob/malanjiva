@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+   <title>Utrjujemo snov</title>
+   <link rel="stylesheet" type="text/css"
+         href="oblika.css" />
+</head>
+<body>
+<h1>Utrjujemo snov 8. poglavja</h1>
+
+<h2>Vprašanja z izbiro</h2>
+<ol>
+
+   <li class="question"><strong>Želimo doseči, da se v primeru, da je </strong> <kbd>pogoj</kbd> <strong>enak </strong> <kbd>true</kbd> <strong>izvede stavek</strong> <kbd>s1</kbd><strong>, sicer pa stavek</strong> <kbd>s2</kbd> <strong>Kako to dosežemo?</strong>
+      <ol type='a'>
+         <li><kbd>if pogoj==true s1; else s2;</kbd></li>
+         <li><kbd>if (pogoj); s1; else s2;</kbd></li>
+         <li><kbd>if (pogoj) s1; else s2;</kbd></li>
+         <li><kbd>if pogoj; s1; else s2;</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>Želimo doseči, da se v primeru, da je </strong> <kbd>pogoj</kbd> <strong>enak </strong> <kbd>true</kbd> <strong>izvedeta stavka</strong> <kbd>s1</kbd> <strong>in </strong> <kbd>s2</kbd><strong>, sicer pa stavek</strong> <kbd>s3</kbd> <strong>Kako to dosežemo?</strong>
+      <ol type='a'>
+         <li><kbd>if (pogoj==true) s1; s2; else s3;</kbd></li>
+         <li><kbd>if (pogoj) s1; s2; else s3;</kbd></li>
+         <li><kbd>if (pogoj) {s1; s2;} else s3;</kbd></li>
+         <li>Z nobenim od naštetih stavkov.</li>
+      </ol></li>
+
+
+   <li class="question"><strong>Podan je stavek </strong> <kbd>if(p1)&nbsp;if(p2)&nbsp;s1;&nbsp;else&nbsp;s2;</kbd> <strong>Kako moramo v tem stavku postaviti zavite oklepaje, da se bo stavek</strong> <kbd>s2</kbd> <strong>izvršil takrat in samo takrat, kadar bo</strong> <kbd>p1</kbd> <strong>enak</strong> <kbd>false</kbd><strong>?</strong>
+      <ol type='a'>
+         <li><kbd>if(p1) if(p2) {s1; else s2;}</kbd></li>
+         <li><kbd>if(p1) {if(p2) s1; else s2;}</kbd></li>
+         <li><kbd>if(p1) {if(p2) s1;} else s2;</kbd></li>
+         <li><kbd>if(p1) if(p2) s1; {else s2;}</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>Podan je stavek</strong> <kbd>if(p1)&nbsp;if(p2)&nbsp;s1;&nbsp;else&nbsp;s2;&nbsp;else&nbsp;s3;</kbd> <strong>Poleg tega vemo, da sta</strong> <kbd>p1</kbd> <strong>in </strong> <kbd>p2</kbd> <strong>oba enaka</strong> <kbd>false</kbd> <strong>Kateri od stavkov</strong> <kbd>s1</kbd><strong>,</strong> <kbd>s2</kbd> <strong>in </strong> <kbd>s3</kbd> <strong>se bodo izvršili?</strong>
+      <ol type='a'>
+         <li><kbd>s1, s2, s3</kbd></li>
+         <li><kbd>s2, s3</kbd></li>
+         <li><kbd>s3</kbd></li>
+         <li>Izvršil se ne bo noben od treh stavkov.</li>
+      </ol></li>
+
+
+   <li class="question"><strong>Imamo spremenljivki <var>x</var> in <var>y</var>, ki imata na začetku obe vrednost 3. Kakšni bosta njuni vrednosti, ko se izvrši koda</strong> <kbd>if&nbsp;(x&nbsp;==&nbsp;0)&nbsp;x&nbsp;=&nbsp;1;&nbsp;y&nbsp;=&nbsp;2;</kbd><strong>?</strong>
+      <ol type='a'>
+         <li><var>x</var> = 3, <var>y</var> = 3</li>
+         <li><var>x</var> = 1, <var>y</var> = 2</li>
+         <li><var>x</var> = 3, <var>y</var> = 2</li>
+         <li><var>x</var> = 1, <var>y</var> = 3</li>
+      </ol></li>
+
+
+   <li class="question"><strong>Kako z uporabo zanke</strong> <kbd>for</kbd> <strong>dosežemo, da se bo v oknu brskalnika izpisalo</strong> <kbd>1234</kbd> <strong>?</strong>
+      <ol type='a'>
+         <li><kbd>for (i = 0; i &lt; 4; i++) document.write(i + 1);</kbd></li>
+         <li><kbd>for (i = 0; i &lt; 4; i++); document.write(i + 1);</kbd></li>
+         <li><kbd>for (i = 0; i &lt; 4; i++) document.write(i);</kbd></li>
+         <li><kbd>for (i = 0; i &lt; 4; i++); document.write(i);</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>Podan je stavek</strong> <kbd>for(i&nbsp;=&nbsp;3,&nbsp;j&nbsp;=&nbsp;1;&nbsp;i&nbsp;>&nbsp;0;&nbsp;i--)&nbsp;j&nbsp;*=&nbsp;i;</kbd> <strong>Kakšno vrednost bo imela spremenljivka <var>j</var>, ko se stavek izvrši do konca?</strong>
+      <ol type='a'>
+         <li>1</li>
+         <li>2</li>
+         <li>3</li>
+         <li>6</li>
+      </ol></li>
+
+   <li class="question"><strong>Podan je stavek</strong> <kbd>for(i&nbsp;=&nbsp;0,&nbsp;j&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;=&nbsp;6;&nbsp;i++)&nbsp;if&nbsp;(i&nbsp;%&nbsp;2)&nbsp;j&nbsp;+=&nbsp;i;</kbd> <strong>Kakšno vrednost bo imela spremenljivka <var>j</var>, ko se stavek izvrši do konca?</strong>
+      <ol type='a'>
+         <li>0</li>
+         <li>9</li>
+         <li>12</li>
+         <li>21</li>
+      </ol></li>
+
+   <li class="question"><strong>Podana je koda</strong> <kbd>do {x&nbsp;*=&nbsp;n;&nbsp;n++;}&nbsp;while&nbsp;(n&nbsp;&lt;=&nbsp;N);</kbd> <strong>Kakšno vrednost bo imela spremenljivka <var>x</var>, ko se koda izvrši do konca, če vemo, da imata spremenljivki <var>n</var> in <var>x</var> na začetku vrednost 1, spremenljivka <var>N</var> pa 4?</strong>
+      <ol type='a'>
+         <li>1</li>
+         <li>6</li>
+         <li>24</li>
+         <li>Nobene od naštetih vrednosti.</li>
+      </ol></li>
+
+
+   <li class="question"><strong>Spremenljivka <var>x</var> ima vrednost 5. Kakšna bo njena vrednost, ko se izvede koda</strong> <kbd>while&nbsp;(x&nbsp;>&nbsp;5)&nbsp;x&nbsp;-=&nbsp;2;&nbsp;x++;</kbd><strong>?</strong>
+      <ol type='a'>
+         <li>6</li>
+         <li>5</li>
+         <li>4</li>
+         <li>3</li>
+      </ol></li>
+
+
+   <li class="question"><strong>Kakšna bo vrednost spremenljivke <var>k</var>, ko se izvede koda</strong> <kbd>for(i&nbsp;=&nbsp;0,&nbsp;k&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;5;&nbsp;i++)&nbsp;for&nbsp;(j&nbsp;=&nbsp;0;&nbsp;j&nbsp;&lt;&nbsp;5;&nbsp;j++&nbsp;)&nbsp;{k++;&nbsp;if&nbsp;(j&nbsp;==&nbsp;3)&nbsp;break;}</kbd><strong>?</strong>
+      <ol type='a'>
+         <li>3</li>
+         <li>4</li>
+         <li>19</li>
+         <li>20</li>
+      </ol></li>
+
+
+
+   <li class="question"><strong>Podan je stavek</strong> <kbd>while&nbsp;(p)&nbsp;s1;</kbd> <strong>Kako bi enak učinek dosegli s stavkom</strong> <kbd>for</kbd> <strong>?</strong>
+      <ol type='a'>
+         <li><kbd>for(; p; s1) s1;</kbd></li>
+         <li><kbd>for(; p; s1);</kbd></li>
+         <li><kbd>for(p); s1;</kbd></li>
+         <li><kbd>for(p) s1;</kbd></li>
+      </ol></li>
+
+   <li class="question"><strong>Podan je stavek</strong> <kbd>switch(x&nbsp;==&nbsp;1){case&nbsp;true:&nbsp;x&nbsp;=&nbsp;0;&nbsp;break;&nbsp;default:&nbsp;x&nbsp;=&nbsp;1;}</kbd> <strong>Kako bi enak učinek dosegli s stavkom</strong> <kbd>if</kbd> <strong>?</strong>
+      <ol type='a'>
+         <li><kbd>if (x == 1) x = 0; else x = 1;</kbd></li>
+         <li><kbd>if (x == 1) x = 1; else x = 0;</kbd></li>
+         <li><kbd>if (x == true) x = 0; else x = 1;</kbd></li>
+         <li><kbd>if (x == true) x = 1; else x = 0;</kbd></li>
+      </ol></li>
+
+
+
+
+   <li class="question"><strong>Koliko krat se je v stavku </strong> <kbd>if&nbsp;(p1)&nbsp;while&nbsp;(p2)&nbsp;s1;&nbsp;else&nbsp;s2;</kbd><strong>, ki se je izvršil do konca, izvršil stavek</strong> <kbd>s1</kbd><strong>, če vemo, da se stavek</strong> <kbd>s2</kbd> <strong>ni izvršil?</strong>
+      <ol type='a'>
+         <li>Se ne izvrši.</li> 
+         <li>Natanko enkrat.</li>
+         <li>Vsaj enkrat.</li>
+         <li>Poljubno krat.</li>
+      </ol></li>
+
+   <li class="question"><strong>Koliko krat se je v stavku</strong> <kbd>if&nbsp;(p1)&nbsp;do&nbsp;s1;&nbsp;while&nbsp;(p2)&nbsp;else&nbsp;s2;</kbd><strong>, ki se je izvršil do konca, izvršil stavek</strong> <kbd>s1</kbd><strong>, če vemo, da se stavek</strong> <kbd>s2</kbd> <strong>ni izvršil?</strong>
+      <ol type='a'>
+         <li>Se ne izvrši.</li> 
+         <li>Natanko enkrat.</li>
+         <li>Vsaj enkrat.</li>
+         <li>Poljubno krat.</li>
+      </ol></li>
+
+   <li class="question"><strong>Koliko krat se je v stavku</strong> <kbd>while(p)&nbsp;s;</kbd><strong>, ki se je izvedel do konca, preveril pogoj</strong> <kbd>p</kbd><strong>, če vemo, da se je stavek</strong> <kbd>s</kbd> <strong>izvedel 3-krat?</strong>
+      <ol type='a'>
+         <li>1-krat</li> 
+         <li>2-krat</li>
+         <li>3-krat</li>
+         <li>4-krat</li>
+      </ol></li>
+ 
+
+   <li class="question"><strong>V kakšnem vrstnem redu se v stavku</strong> <kbd>for&nbsp;(s1;&nbsp;p;&nbsp;s2)&nbsp;s3;</kbd> <strong> izvajajo stavki</strong> <kbd>s1</kbd><strong>, </strong> <kbd>s2</kbd><strong>, </strong> <kbd>s3</kbd> <strong>in</strong> <kbd>p</kbd><strong>?</strong>
+      <ol type='a'>
+         <li><kbd>s1 p s2 s3 s2 s3 s2 s3 ...</kbd></li>
+         <li><kbd>s1 p s2 s3 p s2 s3 p s2 s3 ...</kbd></li>
+         <li><kbd>s1 p s3 s2 p s3 s2 p s3 s2 ...</kbd></li>
+         <li><kbd>s1 p s3 s2 s3 s2 s3 s2 ...</kbd></li>
+      </ol></li>
+
+
+
+</ol>
+
+<h2>V razmislek</h2>
+<p>
+V jeziku JavaScript napišite kodo, ki v obliki tabele po vrsti izpiše nekaj celih števil in za vsako število vse njegove prafaktorje. Prafaktorji so praštevila, ki jih moramo zmnožiti, da dobimo dano število. Program napišite tako, da na začetku s spremenljivkama <var>start</var> in <var>stop</var> določite območje števil, ki jih boste razstavili na prafaktorje. Ko bo stran izdelana, boste lahko zgolj s spreminjanjem teh dveh vrednosti dobili poljubne izpise. Tule je primer za vrednosti spremenljivk <var>start</var>&nbsp;=&nbsp;10 in <var>stop</var>&nbsp;=&nbsp;20:
+</p>
+<img src="./slike/prafaktorji.gif" alt="Prafaktorji števil med 10 in 20" title="Prafaktorji števil med 10 in 20" />
+<p>
+Namig: eden izmed načinov, kako dobite prafaktorje števila <var>N</var> je, da za vsak <var>n</var> med vključno 2 in <var>N</var> preverite, če se deljenje <var>N</var>&nbsp;/&nbsp;<var>n</var> izide brez ostanka. Če se izide, potem <var>N</var> v resnici delite z <var>n</var> (<var>N</var> se zdaj zmanjša), in <var>n</var> izpišete v tabelo, saj je to eden izmed prafaktorjev. Postopek ponavljajte toliko časa, dokler se deljenje ne izide več. Šele potem povečajte <var>n</var> za ena in celoten postopek spet ponovite.
+</p>
+</body>
+</html>
+

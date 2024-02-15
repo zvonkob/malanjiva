@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Stavek_break.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<body>
+
+
+<p>Praštevilo je vsako od 1 različno 
+   naravno število, ki je 
+   deljivo le samo s seboj in z 1.
+   Na primer, med števili od 1 do 100
+   so praštevila naslednja števila:
+   
+<script language="javascript" type="text/javascript">
+<!--
+   var i, stevilo = 0;
+   do 
+   {
+      stevilo++;
+      for (i = 2; i < stevilo; i++)
+      {/* <-- Ta zaviti oklepaj in 
+          zaklepaj, ki mu pripada,
+          nista nujno potrebna, povečata 
+          pa preglednost programa.*/ 
+         if (stevilo % i == 0)
+            break;
+      }
+      /*Če se je kakšno deljenje izšlo 
+        brez ostanka, potem je zanko for
+        ustavil stavek break. V tem primeru
+        i po vrednosti ne bo enak spremenljivki 
+        stevilo. V nasprotnem primeru
+        smo našli praštevilo in ga izpišemo:
+      */
+      if (i == stevilo)
+         document.write(stevilo + " ");
+      
+   } while (stevilo < 100);
+// -->
+</script>
+</p>
+
+<p>Za vajo poskusi med našteta števila
+   postaviti vejice. Naloga ni tako 
+   enostavna, ker je vejic za eno manj
+   kot števil, koliko je števil, pa v 
+   naprej ni znano. Poskusiš lahko celo med
+   zadnji dve našteti števili namesto 
+   vejice postaviti veznik "in".</p>
+
+</body>
+</html> 
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

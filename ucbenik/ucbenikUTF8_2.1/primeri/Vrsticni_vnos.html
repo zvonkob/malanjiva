@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Vrsticni_vnos.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<body>
+
+<form> 
+   <p>Naročam
+      <input type="text" 
+         id="kolicina" 
+         name="kolicina" 
+         size="2"
+         maxlength="2" 
+         value="10" />
+      kompletov najnovejše kolekcije 
+      Nateg po neverjetni ceni 
+      99.999,00 SIT*</p>
+      
+   <p style="font-size : 6; color : #BBBBBB;">
+      *Naročila ni možno preklicati. V ceni 
+      niso všteti 250% manipulativni stroški. 
+      V primeru, da ne boste plačali, si 
+      pridržujemo pravico rubeža do 90% 
+      vašega premoženja brez predhodnega 
+      opozorila.</p>
+</form>
+
+</body>
+</html>
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

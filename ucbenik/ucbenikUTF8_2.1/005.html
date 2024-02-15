@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+   <title>Stilski izziv</title>
+   <link rel="stylesheet" type="text/css"
+         href="oblika.css" />
+   <script language="javascript" type="text/javascript" src="funkcije.js">
+   </script>
+</head>
+<body>
+   <h1>Stilski izziv</h1>
+   <p>
+   Naučili smo se že, da z uporabo logičnih elementov v jeziku <acronym title="eXtended HyperText Markup Language">XHTML</acronym> dodelimo vsebini izključno logičen pomen, medtem ko nad obliko nimamo skoraj nobenega nadzora. Način prikaza je precej odvisen od tipa brskalnika, ki ga uporabljamo za pregledovanje strani. Z nastavljanjem vrednosti različnim lastnostim lahko do neke mere vplivamo na obliko prikaza strani, vendar je takšno oblikovanje zamudno, sploh, če želimo kasneje obliko že sestavljenih strani spreminjati. Ostali pristopi k oblikovanju strani s pomočjo tabel, slik ali vstavljanja binarnih oblik življenja, kot je na primer Flash, prav tako večinoma ne dajejo povsem zadovoljivih rezultatov. 
+   </p>
+   <h2>Slogi <acronym title="Cascading Style Sheets">CSS</acronym></h2>
+   <p>
+   Pojavila se je boljša rešitev - tako imenovane <dfn>kaskadne slogovne pole</dfn> (angl. Cascading Style Sheets - CSS), ki so razmeroma nov dodatek jeziku. Slogovne pole oziroma slogi <acronym title="Cascading Style Sheets">CSS</acronym>, kot jim tudi pravimo, v osnovi delujejo tako, da priredijo obliko posameznim elementom. 
+   </p>
+   <p>
+   Stvar je v resnici sila preprosta. Slogi <acronym title="Cascading Style Sheets">CSS</acronym> so sestavljeni iz množice pravil in vsakega od njih sestavljajo trije deli: <dfn>selektor</dfn>, <dfn>lastnost</dfn> in <dfn>vrednost</dfn>:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+         
+   <var>selektor</var> {<var>lastnost1</var> : vrednost1; <var>lastnost2</var> : vrednost2; ... <var>lastnostN</var> : vrednostN;}
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   Selektor je običajno element <acronym title="eXtended HyperText Markup Language">XHTML</acronym>, ki mu določamo obliko. Lastnosti in vrednosti nastopajo v parih z vmes postavljenim dvopičjem in jih je lahko ob enem selektorju več. Pari so našteti med zavitima oklepajema in ločeni s podpičji. Podpičje za zadnjim parom ni potrebno, vendar toplo priporočam, da ga vseeno pišete. 
+   </p>
+   <p>
+   Vzemimo za primer, da želimo, da se vsi elementi <kbd>h1</kbd> pokažejo v rdeči barvi. To dosežemo z naslednjim pravilom:
+   </p>
+   <pre>
+   h1 {color : red;}
+   </pre>
+   <p>
+   In če bi poleg tega radi imeli velikost črk 30 točk, zapišemo:
+   </p>
+   <pre>
+   h1 {color : red; font-size : 30px;}
+   </pre>
+   <p>
+   Ko dodajamo še več lastnosti, si lahko pomagamo z dejstvom, da slogi <acronym title="Cascading Style Sheets">CSS</acronym> niso preveč občutljivi na presledke. Prejšnje pravilo lahko zapišemo na primer tudi takole:
+   </p>
+   <pre>
+   h1 {color:      red;
+       font-size:  30px;
+      }
+   </pre>
+   <h2>Skupine selektorjev</h2>
+   <p>
+   Selektorje lahko razvrščamo v skupine, tako da jih naštejemo, ločene z vejicami. S tem priredimo obliko vsem hkrati. Če bi želeli na primer spremeniti barvo vsem naslovnim elementom, naredimo to takole:
+   </p>
+   <pre>
+   h1, h2, h3, h4, h5, h6 {color : red;}
+   </pre>
+   <a id="razred" name="razred"></a>
+   <h2>Razredi slogov</h2>
+   <p>
+   S pomočjo razredov (angl. class) lahko enemu in istemu elementu določimo različne oblike. Vzemimo, da si zaželimo dve različni obliki odstavkov, enega obojestransko uravnanega ter drugega uokvirjenega in pastelno zelene barve. Slogovni pravili, s katerima to dosežemo, izgledata takole:
+   </p>
+   <pre>
+   p.uravnano {text-align : justify;}
+   p.pomni {border-style : solid; border-width : thin; background-color : #CCFFCC;}
+   </pre>
+   
+   <p>
+   Pravilo glede izbire imen razredov je sicer bolj ohlapno, vendar toplo priporočam, da za ime izberete le velike in male črke angleške abecede, desetiške cifre in podčrtaj (<kbd>_</kbd>). Ime naj se ne prične z desetiško cifro.
+   </p>
+
+   <h2>Selektorji v kontekstu</h2>
+   <p>
+   Razredi nam omogočajo precejšnjo mero fleksibilnosti, vendar obstajajo še drugačna pravila, ki so tudi precej uporabna. Vzemimo za primer, da želimo, da se vsebina elementov <kbd>strong</kbd>, ki se pojavijo znotraj elementa <kbd>p</kbd>, prikaže drugače, kot vsebina elementov <kbd>strong</kbd>, ki se pojavijo drugje v dokumentu. To dosežemo tako, da postavimo selektor v ustrezen <dfn>kontekst</dfn> (angl. contextual selection). V pravilu peprosto nakažemo, v katerem vrstnem redu morajo biti elementi gnezdeni, da bo pravilo zanje veljalo. Na primer, s pravilom
+   </p>
+   <pre>
+   p strong {background-color: yellow;}
+   </pre>
+   <p>
+   dosežemo, da bo vsebina tistih elementov <kbd>strong</kbd>, ki se nahajajo znotraj katerega koli elementa <kbd>p</kbd>, prikazana na rumenem (angl. yellow) ozadju. Ostalim elementom <kbd>strong</kbd> to pravilo ne določa rumenega ozadja.
+   </p>
+   <p>
+   Slogovna pravila postanejo uporabna šele, ko jih povežemo z dejanskim dokumentom. Ogledali si bomo tri načine dodajanja slogov dokumentom: zunanjo in notranjo slogovno polo ter z vrstičnim slogom.
+   </p>
+
+   <h2>Zunanja slogovna pola</h2>
+   <p>
+   Zunanjo slogovno polo zapišemo v posebni datoteki in jo v dokument vključimo s pomočjo elementa <kbd>link</kbd>. Običajni podaljšek takšne datoteke je .css, kratica za Cascading Style Sheet. V <a href="javascript:okno_primer('./primeri/Zunanji_slog_master.html')">primeru</a>, ki si ga bomo ogledali, smo pravila zapisali v datoteko <a href="./primeri/oblikastrani.css"><kbd>oblikastrani.css</kbd></a>. Njena vsebina je takšna:
+   </p>
+   <pre>
+   body {font-size:        16px;       /*velikost besedila*/
+         font-family:      serif;      /*tip besedila*/
+         color:            black;      /*barva besedila*/
+         background-color: lightgreen; /*barva ozadja*/
+        }
+         
+   h1   {font-size:        30px;
+         font-family:      sans-serif;
+         color:            black;
+         text-align:       center;     /*uravnava besedila*/
+         background-color: white;
+        }      
+   </pre>
+   <p>
+   Kot nam kaže primer, lahko v slogovne pole pišemo tudi opombe in sicer med pare znakov <kbd>/*</kbd> in <kbd>*/</kbd>. Gornjo polo vključimo v dokument s pomočjo elementa <kbd>link</kbd>. Ker bo to edina uporaba tega elementa v tem učbeniku, se ne bomo podrobno spuščali vanj. Vedeti moramo le, da element <kbd>link</kbd> vsatvimo v element <kbd>head</kbd>, in da lastnosti <kbd>href</kbd> priredimo pot do datoteke s slogovnimi pravili:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre style="syntax">
+   
+   &lt;link rel="stylesheet" href="oblikastrani.css" type="text/css" /&gt;
+   
+   </pre>
+   </td></tr></table>
+   <p>Slogovne pole ponujajo ogromno možnosti za oblikovanje strani. Ker ta učbenik ni izčrpen priročnik, ampak ponuja samo skromen uvoden pregled, si bo bolj zvedav bralec poiskal več informacij v ustrezni <a href="110.html">literaturi</a>. Če pa se želite s slogi malo poigrati, je <a href="javascript:okno_tabela('./tabele/Seznam_slogovnih_lastnosti.html')">tule</a> za pokušino seznam samo nekaterih slogovnih lastnosti in njihovih vrednosti.
+   </p>
+   <h2>Notranja slogovna pola</h2>
+   <p>
+   Slogovna pravila lahko zapišemo tudi v sam dokument, in sicer v njegovo glavo v element <kbd>style</kbd>. Ob tem nas malo zaskrbi, kaj se bo zgodilo v brskalnikih, zlasti starejših, ki ne podpirajo slogov <acronym title="Cascading Style Sheets">CSS</acronym>. Glede na običajno pravilo, da brskalnik enostavno prikaže vsebino elementa, ki ga ne razume, se lahko pripeti, da se bo vsebina elementa <kbd>style</kbd> udejanila v oknu brskalnika, česar si ne želimo. Težavi se izognemo tako, da slogovne informacije obdamo z znaki za opombe:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   &lt;style type="text/css"&gt;
+   &lt;!--
+      definicije slogovnih pravil
+      ...
+   --&gt;
+   &lt;/style&gt;   
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   Kakor vidimo iz <a href="javascript:okno_primer('./primeri/Notranji_slog_master.html')">primera</a>, ostaja način zapisovanja pravil nespremenjen.
+   </p> 
+   <h2>Vrstični slog</h2>
+   <p>
+   Včasih si ne želimo spremeniti sloga celemu dokumentu, pač pa le izbranemu elementu. V tem primeru uporabimo vrstični (angl. inline) slog. Zapišemo ga kot vrednost lastnosti <kbd>style</kbd> elementa, ki mu želimo prirediti slog. Če želimo na primer naslov zelene barve, napravimo to takole:
+   </p>
+   <pre>
+   &lt;h1 style="color:green;"&gt;Zelenkast naslov&lt;/h1&gt;
+   </pre>
+   <p>
+   Uporabimo lahko tudi razreda, ki smo ju določili v razdelku <a href="#razred">Razredi slogov</a>. To storimo s pomočjo lastnosti <kbd>class</kbd>:
+   </p>
+   <pre>
+   &lt;p class="uravnano"&gt;... to besedilo bo uravnano ob levi in desni rob ...&lt;/p&gt;
+   &lt;p class="pomni"&gt;... to besedilo bo uokvirjeno ...&lt;/p&gt;
+   </pre>
+   <p>
+   Seveda moramo v dokument vključiti slogovno polo z definicijama obeh razredov. Vrstičnih slogov ni potrebno skrivati pod opombe, saj že vemo, da se brskalnik za neznane lastnosti enostavno ne zmeni.
+   </p>
+   <p>
+   Pozabavajmo se s še enim <a href="javascript:okno_primer('./primeri/Vrsticni_slog_master.html')">primerom</a>.
+   </p>
+   <h2>Mešanje slogovnih pol</h2>
+   <p>
+   Videli smo, da lahko slogovna pravila določamo na več različnih načinov. Pomembno je, da pri tem vemo, katero pravilo bo obveljalo, če istemu elementu priredimo različne sloge na različnih mestih. Slogovno pravilo se priredi elementu po naslednji prednostni lestvici, pri čemer pomeni številka 4 najvišjo prednost:
+   </p>
+   <ol>
+      <li>privzeta oblika za brskalnik</li>
+      <li>zunanja slogovna pola</li>
+      <li>notranja slogovna pola (določena v glavi dokumenta)</li>
+      <li>vrstični slog (določen v dotičnem elementu)</li>
+   </ol>
+   <p>
+   Vrstični slog ima najvišjo prednost, kar pomeni, da bo razveljavil vse sloge, določene z ostalimi metodami.
+   </p>
+   <h2>Elementa <kbd>div</kbd> in <kbd>span</kbd></h2>
+   <p>
+   Elementa <kbd>div</kbd> (angl. division = oddelek, del) in <kbd>span</kbd> (slov. obseg) nimata v jeziku <acronym title="eXtended HyperText Markup Language">XHTML</acronym> nikakršnega logičnega pomena, v povezavi s slogi CSS pa sta nepogrešljiva. Z njima lahko vnaprej označimo določene dele dokumenta, ki jim kasneje določimo izgled s pomočjo slogovnih pol. Elementa se razlikujeta samo po tem, da je <kbd>div</kbd> blokovski, <kbd>span</kbd> pa vrstični element.
+   </p>
+   <p>
+   Na primer, če želimo določenemu besedilu prirediti čisto poseben izgled, naredimo to takole:
+   </p>
+   <pre>
+   To je povsem običajen stavek, ki slučajno vsebuje še 
+   nekaj &lt;span class="cistoposebenizgled"&gt;zelo posebnih 
+   besed&lt;/span&gt;.
+   </pre>
+   <h2>Povzetek</h2>
+   <p>
+   Večina elementov <acronym title="eXtended HyperText Markup Language">XHTML</acronym> dodeli svoji vsebini le logičen pomen, ne pa tudi oblike prikaza. Obliko lahko delno krmilimo z lastnostmi elementov in pa tako, da elemente na primer vstavljamo v tabele, kar pogosto ni preveč učinkovita rešitev. 
+   </p>
+   <p>
+   Kaskadne slogovne pole (<acronym title="Cascading Style Sheets">CSS</acronym>) so nov dodatek jeziku <acronym title="eXtended HyperText Markup Language">XHTML</acronym> in nam omogočajo precej več nadzora nad obliko. Pravila zapisovanja v slogovnih polah so preprosta. Za imenom elementa, ki mu želimo prirediti obliko, v zavitih oklepajih enostavno naštejemo slogovna pravila. Posamezno pravilo je sestavljeno iz imena lastnosti in njene vrednosti. Vmes je dvopičje in na koncu podpičje. Če želimo istemu elementu določiti več različnih slogov, uporabimo razrede ali pa selektorje v kontekstu.
+   </p>
+   <p>
+   Slogovne pole lahko pišemo v posebni datoteki, ki ji dodelimo končnico .css in jo v dokument vključimo s pomočjo elementa <kbd>link</kbd>. Druga pot vključevanja slogovne pole je, da slogovna pravila pišemo neposredno v dokument v element <kbd>style</kbd>. Da se vsebina tega elementa ne bi prikazala v brskalnikih, ki ne podpirajo slogov <acronym title="Cascading Style Sheets">CSS</acronym>, jo označimo z znaki za opombo. Z vrstičnimi slogi lahko dodelimo obliko posameznim elementom tako, da pravila vpisujemo enostavno kot vrednost lastnosti <kbd>style</kbd> elementa, ki mu dodeljujemo slog. 
+   </p>
+   <p>
+   Kadar vključimo v dokument slogovna pravila na več različnih načinov, moramo poznati prednostno lestvico, da vemo, katero pravilo bo obveljalo.
+   </p>
+   <p>
+   Za pokušino so v <a href="javascript:okno_tabela('./tabele/Seznam_slogovnih_lastnosti.html')">tabeli</a> povzete nekatere slogovne lastnosti z vrednostmi, ki jim jih lahko dodeljujemo. Veliko več bo našel bralec v ustrezni <a href="110.html">literaturi</a>.
+   </p>
+   
+</body>
+</html>

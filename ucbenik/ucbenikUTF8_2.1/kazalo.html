@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Kazalo</title>
+
+   <style type="text/css">
+   <!--
+   table {
+      border: 0;
+      margin: 0;
+   }
+   td {
+      vertical-align: top;
+   }
+   h1, h2, h3, h4, h5, h6 {font-style: italic;}
+
+   a {text-decoration: none; color: #808080;}
+   a.plus:link, a.plus:visited {
+      color: black;
+      text-decoration: none;
+   }
+   a:link, a:visited {
+      color: black;
+   }
+   -->
+   </style>
+<script language="javascript" type="text/javascript">
+<!--
+var tree
+if(isNav4() && navigator.tree8487 != undefined)
+  // Use a unique value to differentiate with other concurrent tree objects
+ tree = navigator.tree8487
+else tree = createTree()
+
+function isDOM1Capable() {
+ if(document.getElementById) return true
+ return false
+}
+
+function isIE4() {
+ if(!isDOM1Capable() && document.all) return true
+ return false
+}
+
+function isNav4() {
+ if(navigator.appName == "Netscape" &&
+   parseInt(navigator.appVersion) >= 4 &&
+   parseInt(navigator.appVersion) < 5) return true
+ return false
+}
+
+function createTree() {
+ var nodes = new Array(
+  "",
+  "<a href=\"001.html\" target=\"prikaz_strani\">1. Moja prva spletna stran</a>",
+  "<a href=\"001_vpr.html\" target=\"prikaz_strani\"><em>Utrjujemo snov</em></a>",
+
+  "<a href=\"002.html\" target=\"prikaz_strani\">2. Malo več oblike</a>",
+  "<a href=\"002_vpr.html\" target=\"prikaz_strani\"><em>Utrjujemo snov</em></a>",
+
+  "<a href=\"003.html\" target=\"prikaz_strani\">3. Povežimo se!</a>",
+  "<a href=\"003_vpr.html\" target=\"prikaz_strani\"><em>Utrjujemo snov</em></a>",
+
+  "<a href=\"004.html\" target=\"prikaz_strani\">4. Red mora biti</a>",
+  "<a href=\"004_vpr.html\" target=\"prikaz_strani\"><em>Utrjujemo snov</em></a>",
+
+  "<a href=\"005.html\" target=\"prikaz_strani\">5. Stilski izziv</a>",
+  "<a href=\"005_vpr.html\" target=\"prikaz_strani\"><em>Utrjujemo snov</em></a>",
+
+  "<a href=\"006.html\" target=\"prikaz_strani\">6. Prosim, izpolnite tale obrazec</a>",
+  "<a href=\"006_vpr.html\" target=\"prikaz_strani\"><em>Utrjujemo snov</em></a>",
+
+  "<a href=\"007.html\" target=\"prikaz_strani\">7. Računajte na nas</a>",
+  "<a href=\"007_vpr.html\" target=\"prikaz_strani\"><em>Utrjujemo snov</em></a>",
+
+  "<a href=\"008.html\" target=\"prikaz_strani\">8. Stavki jezika JavaScript</a>",
+  "<a href=\"008_vpr.html\" target=\"prikaz_strani\"><em>Utrjujemo snov</em></a>",
+
+  "<a href=\"009.html\" target=\"prikaz_strani\">9. Dogodek v mestu Gogi</a>",
+  "<a href=\"009_vpr.html\" target=\"prikaz_strani\"><em>Utrjujemo snov</em></a>",
+
+  "<a href=\"010.html\" target=\"prikaz_strani\">10. Uporaba objektov</a>",
+  "<a href=\"010_vpr.html\" target=\"prikaz_strani\"><em>Utrjujemo snov</em></a>",
+
+  "<a href=\"011.html\" target=\"prikaz_strani\">11. Akcija</a>",
+  "<a href=\"110.html\" target=\"prikaz_strani\">Literatura</a>",
+
+  "<a href=\"./primeri/index.html\" target=\"prikaz_strani\">Kazalo primerov</a>",
+  "<a href=\"./tabele/index.html\" target=\"prikaz_strani\">Kazalo tabel</a>",
+
+  "<a href=\"120.html\" target=\"prikaz_strani\">Namesto uvoda</a>"
+  )
+ var branches = new Array(new Array(0,1), new Array(0,3),
+  new Array(0,5), new Array(0,7), new Array(0,9), 
+  new Array(0,11), new Array(0,13), new Array(0,15), 
+  new Array(0,17), new Array(0,19), 
+  new Array(0,21), new Array(0,22), 
+  new Array(0,23), new Array(0,24), new Array(0,25), 
+  new Array(1,2), new Array(3,4), new Array(5,6),
+  new Array(7,8), new Array(9,10),
+  new Array(11,12), new Array(13,14),
+  new Array(15,16), new Array(17,18), new Array(19,20)
+ )
+ branchID = 0
+ var subtrees = new Array()
+ for(var i=0; i<nodes.length; ++i)
+  subtrees[i] = new Tree(nodes[i])
+ for(var i=0; i<branches.length; ++i)
+ {
+  subtrees[branches[i][0]].addBranch(subtrees[branches[i][1]]);
+  if (i != 0)  subtrees[i].expanded = false;
+ }
+ return subtrees[0]
+}
+
+function Tree(root) {
+ this.text = root
+ this.id = branchID
+ ++branchID
+ this.expanded = true
+ this.branches = new Array()
+ this.addBranch = Tree_addBranch
+ this.changeState = Tree_changeState
+ this.handleClick = Tree_handleClick
+ this.processClick = Tree_processClick
+ this.display = Tree_display
+ this.getTreeString = Tree_getTreeString
+}
+function Tree_addBranch(tree) {
+ this.branches[this.branches.length] = tree
+}
+function Tree_changeState() {
+ this.expanded = !this.expanded
+}
+function Tree_handleClick(branch) {
+count = 0;
+ this.processClick(branch)
+ if(isNav4()) {
+  navigator.tree8487 = tree
+  window.location.reload()
+ }else if(isDOM1Capable()) {
+  var d = document.getElementById("tree")
+  if(d != null) d.innerHTML = this.getTreeString()
+ }else if(isIE4()) {
+  var d = document.all("tree")
+  if(d != null) d.innerHTML = this.getTreeString()
+ }
+}
+function Tree_processClick(branch) {
+ if(this.id == branch) this.changeState()
+ else {
+  for(var i=0; i<this.branches.length; ++i)
+   this.branches[i].processClick(branch)
+ }
+}
+function Tree_getTreeString() {
+ var s = "<table><tr><td>&nbsp;</td><td>"
+ s += '<table width=\"230\" cellspacing="0" cellpadding="0">'
+ s += "<tr>"
+ s += "<td width=\"15\">"
+ if(this.branches.length > 0)
+  if (count != 0)
+  {
+   if (this.expanded == false)
+   s += '<a class="plus" href="javascript:tree.handleClick('+this.id+')"><kbd>+</kbd></a>'
+   else s += '<a class="plus" href="javascript:tree.handleClick('+this.id+')"><kbd>-</kbd></a>';
+  }
+ count = 1;
+ s += "</td>"
+ s += "<td>"
+ s += this.text
+ s += "</td>"
+ s += "</tr>"
+ s += "</table>"
+ if((this.branches.length > 0) && (this.expanded == true)) {
+  for(var i=0; i<this.branches.length; ++i)
+   s += this.branches[i].getTreeString()
+ }
+ s += "</td></tr></table>"
+ return s
+}
+function Tree_display() {
+ document.writeln(this.getTreeString())
+ }
+//-->
+</script>
+</head>
+<body>
+<h2>&nbsp;&nbsp;&nbsp;Kazalo</h2>
+<div id="tree">
+<script language="javascript" type="text/javascript">
+<!--
+var count = 0;
+tree.display()
+//-->
+</script>
+</div>
+</body>
+</html>

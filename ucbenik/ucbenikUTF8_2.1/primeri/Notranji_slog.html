@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Notranji_slog.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<head>
+   <style type="text/css">
+   <!--
+      p, th, td, h1 {
+         font-family : sans-serif; 
+         padding : 5px;
+      }
+      
+      p, th, td {
+         font-size : 14px;
+      }
+      
+      th {
+         background-color : lightgrey;
+      }
+      
+      h1 {
+         color : firebrick;
+         font-style : italic;
+      }
+      /*
+      p strong {
+         background-color: yellow;
+      }
+      */
+   -->
+   </style>
+</head>
+<body>
+   <h1>Notranji slog</h1>
+   
+   <p>Ta primer kaže uporabo notranje 
+      slogovne pole. Spremeni ali 
+      izbriši kakšno slogovno pravilo
+      in opazuj učinek na obliko 
+      besedila. Lahko dodaš tudi 
+      kakšen nov element in mu določiš
+      pravila.</p> 
+   
+   <table border="1">
+      <tr>
+         <th>ime in priimek</th>
+         <th>telefon</th>
+      </tr>
+      <tr>
+         <td>John Wayne</td>
+         <td>N/A</td>
+      </tr>
+      <tr>
+         <td>Gary Cooper</td>
+         <td>N/A</td>
+      </tr>
+   </table>
+   
+   <p>Če odstraniš znake za 
+      opombe okrog pravila za element 
+      <kbd>strong</kbd>, bo <strong>imelo
+      tole besedilo rumeno ozadje</strong>.</p>
+      
+   <pre>
+      <strong>Tole pa še vedno ne bo rumeno.</strong> 
+      Odstrani še element p pred 
+      pravilom za strong in opazuj 
+      učinek.
+   </pre>
+</body>
+</html>
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

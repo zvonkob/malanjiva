@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+   <title>Stavki jezika JavaScript</title>
+   <link rel="stylesheet" type="text/css"
+         href="oblika.css"
+         title="Ucbenik" />
+   <script language="javascript" type="text/javascript" src="funkcije.js">
+   </script>
+</head>
+<body>
+   <h1>Stavki jezika JavaScript</h1>
+   <p>
+   Osnovni gradniki vsakega programskega jezika so <dfn>stavki</dfn> (angl. statement), ki predstavljajo ukaze, ki jih mora računalnik izvrševati. Izrazi, ki smo jih spoznali v prejšnjem poglavju, so velikokrat že sami po sebi stavki, čeprav to ni nujno. Če na primer nek izraz vstavimo v nek drug izraz, potem prvi izraz ni stavek, drugi pa lahko je, če stoji v svoji lastni vrstici, ali če ima na koncu podpičje. Podpičja na koncu stavkov v jeziku JavaScript so obvezna le, če imamo več stavkov v eni vrstici. S podpičji na ta način stavke ločimo. Zaradi podobnosti z jezikom C priporočam, da podičja vseeno pišete na koncu vsakega stavka, ker bo tako prehod na jezik C precej lažji. Podpičja ne bomo pisali edino, kadar se bo stavek zaključil z zavitim zaklepajem (<kbd>}</kbd>).
+   </p>
+   <p>
+   JavaScript pozna celo paleto osnovnih programskih stavkov, ki jih bomo večino spoznali v tem učbeniku. Čeprav JavaScript ni objektno usmerjen programski jezik, pa je objektno zasnovan, kar pomeni, da podpira objekte. Nekaj malega o objektih v jeziku JavaScript bomo povedali v poglavju <a href="010.html">Uporaba objektov</a>.
+   </p>
+   <p>
+   Preden se lotimo stavkov, si poglejmo še način grafične predstavitve delovanja programov, ki mu pravimo <dfn>diagram poteka</dfn> (angl. flowchart).
+   </p>
+   <h2>Diagram poteka</h2>
+   <p>
+   Stavki, iz katerih je zgrajen program, se izvajajo v določenem zaporedju. To zaporedje lahko prikažemo grafično z uporabo pravokotnikov, rombov in puščic. Pravokotnik predstavlja stavek ali skupino stavkov, ki se morajo izvršiti. V vsak pravokotnik vstopa ena pušcica, druga puščica pa iz njega izstopa:
+   </p>
+   <img src="./slike/stavek.gif" alt="Stavek" />
+   <p>
+   Puščici predstavljata smer, v kateri potujemo po diagramu poteka, ko ga beremo. Drug element, romb, predstavlja odločitev. Vanj pridemo po eni poti, izstopimo pa lahko po eni od dveh možnih poti. Če ima izraz, ki je v rombu (<kbd>pogoj</kbd>), vrednost <kbd>true</kbd> oziroma različno od nič, potem izstopimo v smeri puščice, ob kateri je zapisano "true". Če pa ima izraz vrednost <kbd>false</kbd> oziroma nič, potem izstopimo v smeri puščice, ob kateri piše "false":
+   </p>
+   <img src="./slike/odlocitev.gif" alt="Odločitev" />
+   <p>
+   Oba elementa lahko prek puščic povezujemo na poljubne načine, čeprav bomo videli, da v jezikih, kakršen je JavaScript, veljajo določena strukturna pravila, zato takim jezikom pravimo tudi <dfn>strukturirani jeziki</dfn> (angl. structured language). Ta pravila nas omejujejo skoraj izključno na uporabo stavkov, ki imajo le en vhod in izhod. Odločitve obstajajo le kot gradnik vnaprej določenih stavčnih elementov, ki jih bomo spoznali v tem poglavju. 
+   </p>
+   <h2>Akcija</h2>
+   <p>
+   Zdaj pa na delo. Do konca poglavja bomo spoznali večino stavkov, ki so navedeni v naslednji tabeli. Zadnja dva stavka, <kbd>klic funkcije</kbd> in stavek <kbd>return</kbd>, bomo obravnavali v <a href="009.html">naslednjem poglavju</a>, ko bomo podrobneje govorili o funkcijah.
+   </p>
+   
+   <table border="1" cellspacing="0" class="seznam">
+   <tr><th>stavek</th>      <th>namen</th></tr>
+   <tr><td><kbd>priredilni</kbd></td>  <td>spremenljivki priredi vrednost izraza</td></tr>
+   <tr><td><kbd>prazen</kbd></td>  <td>ne naredi ničesar</td></tr>
+   <tr><td><kbd>deklaracija<br />spremenljivke</kbd></td>  <td>najavi spremenljivko (in ji po potrebi priredi začetno vrednost)</td></tr>
+   <tr><td><kbd>sestavljen</kbd></td>  <td>združi več stavkov v enega</td></tr>
+   <tr><td><kbd>if..else</kbd></td>  <td>izvede enega od dveh ponujenih stavkov</td></tr>
+   <tr><td><kbd>while</kbd></td>  <td>ponavlja izvajanje stavka</td></tr>
+   <tr><td><kbd>for</kbd></td>  <td>ponavlja izvajanje stavka</td></tr>
+   <tr><td><kbd>do..while</kbd></td>  <td>ponavlja izvajanje stavka</td></tr>
+   <tr><td><kbd>break</kbd></td>  <td>takoj izstopi iz ponavljalnega stavka ali stavka <kbd>switch</kbd></td></tr>
+   <tr><td><kbd>continue</kbd></td>  <td>prekine trenutno iteracijo ponavljalnega stavka</td></tr>
+   <tr><td><kbd>switch</kbd></td>  <td>izbira med vrsto alternativami</td></tr>
+   <tr><td><kbd>oznaka</kbd></td>  <td>stavku priredi oznako</td></tr>
+   <tr><td><kbd>klic funkcije</kbd></td>  <td>izvede funkcijo</td></tr>
+   <tr><td><kbd>return</kbd></td>  <td>prekine izvajanje funkcije in po potrebi vrne vrednost</td></tr>
+   </table>
+   <h3>Priredilni stavek</h3>
+   <p>
+   Najosnovnejši stavek vsakega programskega jezika je <dfn>priredilni</dfn> stavek, ki v spremenljivko zapiše vrednost na desni strani priredilnega operatorja. Precej priredilnih stavkov smo srečali že v prejšnjem poglavju, tule je še en primer:
+   </p>
+   <pre>
+   x_na_kvadrat = x * x;
+   </pre>
+   <p>
+   Kot smo že uvodoma povedali, bomo na koncu stavka pisali podpičje, čeprav je to obvezno le v primeru, kadar nastopi več stavkov v eni vrstici.
+   </p>
+   <h3>Prazen stavek</h3>
+   <p>
+   Samo podpičje predstavlja prazen stavek, ki ne naredi ničesar. Čeprav se zdi, da takšen stavek ne služi ničemur, bomo videli, da ima lahko prazen stavek določen pomen, kadar nastopa kot del kakšnega drugega stavka.
+   </p>
+   <h3>Deklaracija spremenljivk</h3>
+   <p>
+   Spremenljivko deklariramo (napovemo) tako, da pred njeno ime postavimo rezervirano besedo <kbd>var</kbd>, kar je kratica angleške besede variable, ki pomeni spremenljivko:
+   </p>
+   <pre>
+   var krNeki;
+   </pre>
+   <p>
+   V enem stavku lahko deklariramo tudi več spremenljivk:
+   </p>
+   <pre>
+   var krNeki, seNeki;
+   </pre>
+   <p>
+   Spremenljivki lahko ob deklaraciji priredimo začetno vrednost:
+   </p>
+   <pre>
+   var krNeki = 42;
+   </pre>
+   <p>
+   Na ta način postane spremenljivka <kbd>krNeki</kbd> enaka 42 in njen tip postane številski, enako, kot če bi ji vrednost priredili v posebnem priredilnem stavku.
+   </p>
+   <p>
+   Ob deklaraciji lahko ustvarimo tudi objekt, o čemer bomo podrobneje govorili v poglavju <a href="010.html">Uporaba objektov</a>:
+   </p>
+   <pre>
+   var temperatura = new Array();
+   </pre>
+   <h3>Sestavljen stavek</h3>
+   <p>
+   Sestavljen stavek ni nič drugega kot več stavkov, nanizanih drug za drugim. Sestavljen stavek naredimo tako, da stavke obdamo s parom zavitih oklepajev:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   {
+      <var>stavek_1</var>;
+      <var>stavek_2</var>;
+      ...
+      <var>stavek_n</var>;
+   }
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   Stavki se seveda izvajajo v istem vrstnem redu, kakor so navedeni. Diagram poteka sestavljenega stavka je videti takole:
+   </p>
+   <img src="./slike/sestavljen_stavek.gif" alt="Sestavljen stavek" />
+   <p>
+   Zelo pomembno je, da si zapomnimo, da sestavljen stavek navzven deluje kot en sam stavek z enim vhodom in enim izhodom, kar je na gornjem diagramu prikazano s tankim pravokotnikom, ki obdaja vseh <var>n</var> stavkov. Takšen stavek bomo lahko kasneje vstavili v kak drug diagram poteka.
+   </p>
+   <h3>Stavek <kbd>if..else</kbd></h3>
+   <p>
+   Stavek <kbd>if..else</kbd> je pogojni stavek, ki deluje zelo podobno kot <a href="007.html#ifelse">ternarni pogojni operator</a>, ki smo ga srečali v prejšnjem poglavju. Sintaktični zapis stavka izgleda takole:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   if (<var>pogoj</var>) <var>akcija</var>;
+   else <var>alternativa</var>;
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   Če je <kbd><var>pogoj</var></kbd> enak <kbd>true</kbd>, potem se izvrši stavek <kbd><var>akcija</var></kbd>, sicer se izvrši stavek <kbd><var>alternativa</var></kbd>. Stavek deluje v resnici kot nekakšna kretnica. Takšen je diagram poteka stavka <kbd>if..else</kbd>:
+   </p>
+   <img src="./slike/stavek_if_else.gif" alt="Stavek if..else" />
+   <p>
+   Na mesto stavkov <kbd><var>akcija</var></kbd> in <kbd><var>alternativa</var></kbd> lahko vstavimo poljuben stavek, na primer sestavljen stavek, ali celo še en stavek <kbd>if..else</kbd>.
+   </p>
+   <p>
+   Čas bo že, da si ogledamo kak <a href="javascript:okno_primer('./primeri/Stavek_if_master.html')">primer</a>.
+   </p>
+   <p>
+   Včasih si v primeru, ko pogoj ni izpolnjen, ne želimo ničesar posebnega. V takem primeru enostavno izpistimo del <kbd>else</kbd>:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   if (<var>pogoj</var>) <var>akcija</var>;
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   Dobimo takšen diagram poteka:
+   </p>
+   <img src="./slike/stavek_if.gif" alt="Stavek if" />
+   <p>
+   Vzemimo za primer, da imamo v nekem programu spremenljivko <var>sekunde</var>, ki šteje število pretečenih sekund, in spremenljivko <var>minute</var>, ki šteje število pretečenih minut. Vsakokrat, ko sekunde dosežejo vrednost 60, želimo, da se postavijo na 0, minute pa se povečajo za ena. V nasprotnem primeru naj se ne zgodi nič. Problem lahko rešimo takole:
+   </p>
+   <pre>
+   //...
+   sekunde++;
+   if (sekunde == 60)
+   {
+      sekunde = 0;
+      minute++;
+   }
+   document.write("Preteklo je " + minute + " minut in " + sekunde + " sekund.");
+   //...
+   </pre>
+
+   <h3>Stavek <kbd>while</kbd></h3>
+   <p>
+   S pogojnim stavkom <kbd>if..else</kbd> smo v naše programe že uvedli možnost odločanja. Program se bo izvedel na en ali drug način, odvisno od trenutnega stanja. Vendar nam ta stavek še vedno ne omogoča, da bi računalniku prepustili, da za nas opravlja ponavljajoča se in duhamorna opravila. Uporabiti moramo katerega od treh <dfn>ponavljalnih</dfn> stavkov oziroma programskih <dfn>zank</dfn> (angl. loop). Prvi tak ponavljalni stavek je stavek <kbd>while</kbd>. Takšen je njegov sintaktični zapis:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   while (<var>pogoj</var>) <var>mešaj</var>;   
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   While po angleško pomeni dokler. V resnici lahko ta stavek razumemo kot: Dokler je <kbd><var>pogoj</var></kbd> enak <kbd>true</kbd>, izvajaj stavek <kbd><var>mešaj</var></kbd>. Če smo še bolj natančni, se stavek izvaja tako, da se najprej izračuna vrednost izraza <kbd><var>pogoj</var></kbd> in če je ta enaka <kbd>true</kbd>, se izvrši stavek <kbd><var>mešaj</var></kbd>. Takoj za tem se spet izračuna vrednost izraza <kbd><var>pogoj</var></kbd>, in tako dalje. Takole izgleda diagram poteka stavka <kbd>while</kbd>: 
+   </p>
+   
+   <img src="./slike/stavek_while.gif" alt="Stavek while" />
+   
+   <p>
+   Za primer vzemimo vrsto, ki v vsoti konvergira proti številu &Pi;:
+   </p>
+   <p class="formula">
+   &Pi; = 4 - 4/3 + 4/5 - 4/7 + 4/9 - ...
+   </p>
+   <p>
+   Z uporabo stavka <kbd>while</kbd> bomo izračunali vsoto te vrste. Da izračun ne bo trajal neskončno dolgo, bomo v vsoti upoštevali le člene, ki so po absolutni vrednosti še večji od 0.00001. Poglejmo si izgotovljen <a href="javascript:okno_primer('./primeri/Stavek_while_master.html')">program</a>.
+   </p>
+
+   <h3>Stavek <kbd>for</kbd></h3>
+   <p>
+   Naslednji ponavljalni stavek je stavek <kbd>for</kbd>, katerega sintaktični zapis je tak:
+   </p>
+
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   for (<var>inicializacija</var>; <var>pogoj</var>; <var>štej</var>) <var>mešaj</var>;
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   Čeprav na prvi pogled tega ni videti, se stavek v resnici ne razlikuje dosti od stavka <kbd>while</kbd>. V stavku <kbd>for</kbd> se najprej izvede stavek <kbd><var>inicializacija</var></kbd>, potem se izračuna <kbd><var>pogoj</var></kbd>, in če je slednji enak <kbd>true</kbd>, se eden za drugim izvedeta še stavka <kbd><var>mešaj</var></kbd> in <kbd><var>štej</var></kbd>. Takoj zatem se ponovno izračuna <kbd><var>pogoj</var></kbd>, in če je njegova vrednost še zmeraj <kbd>true</kbd>, se spet izvršita stavka <kbd><var>mešaj</var></kbd> in <kbd><var>štej</var></kbd>. Vsa zgodba se ponavlja, dokler je <kbd><var>pogoj</var></kbd> enak <kbd>true</kbd>. Takšen je diagram poteka:
+   </p>
+   
+   <img src="./slike/stavek_for.gif" alt="Stavek for" />
+   
+   <p>
+   Stavek <kbd>for</kbd> najpogosteje uporabimo v primerih, ko je število ponavljanj že vnaprej znano. V tem primeru si navadno izberemo kak števec, ki ga v stavku <kbd><var>inicializacija</var></kbd> nastavimo na začetno vrednost, v stavku <kbd><var>štej</var></kbd> spreminjamo njegovo vrednost, navadno za ena, v stavku <kbd><var>pogoj</var></kbd> pa nastavimo končno vrednost števca. Če na primer želimo, da se nam v oknu brskalnika izpišejo vrednosti med 0 in 9, lahko to dosežemo takole:
+   </p>
+   <pre>
+   for (i = 0; i &lt; 10; i++)
+      document.write(i + " ");
+   </pre>
+   <p>
+   Poglejmo si še za odtenek bolj uporaben <a href="javascript:okno_primer('./primeri/Stavek_for_master.html')">primer</a>.
+   </p>
+   <p>
+   Malo prej sem omenil, da je stavek <kbd>for</kbd> zelo podoben stavku <kbd>while</kbd>. Če v stavku <kbd>for</kbd> izpustimo stavka <kbd><var>inicializacija</var></kbd> in <kbd><var>štej</var></kbd>, dobimo stavek, ki je po delovanju popolnoma ekvivalenten stavku <kbd>while</kbd>:  
+   </p>
+   <pre>
+      for (; <var>pogoj</var>;) <var>mešaj</var>;
+   </pre>
+   <p>
+   Obe podpičji znotraj oklepajev sta obvezni in ju moramo vedno pisati, tudi če katerega od stavkov opustimo.
+   </p>
+   <p>
+   V razmislek še tole. Kaj se izpiše v brskalniku, če v delu programa za izpis števil med 0 in 9, ki smo ga srečali malo prej, na koncu prve vrstice dodamo podpičje? Spomnimo se, da samo podpičje predstavlja prazen stavek. Stavek, ki ničesar ne naredi, vendar se še vedno obravnava kot stavek:
+   </p>
+   <pre>
+   for (i = 0; i &lt; 10; i++);
+      document.write(i + " ");
+   </pre>
+   
+   
+   <h3>Stavek <kbd>do..while</kbd></h3>
+   <p>
+   Zadnji od treh ponavljalnih stavkov je stavek <kbd>do..while</kbd>. Stavek se nekoliko razlikuje od prejšnjih dveh in sicer v tem, da se pogoj preverja na koncu zanke. Posledica tega je, da se stavek <kbd><var>mešaj</var></kbd> v vsakem primeru izvrši vsaj enkrat. Sintaktični zapis stavka <kbd>do..while</kbd> je takšen:
+   </p>
+   
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   do <var>mešaj</var>; while (<var>pogoj</var>);
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   In takole je videti diagram poteka:
+   </p>
+   <img src="./slike/stavek_do_while.gif" alt="Stavek do while" />
+
+   <p>
+   Če želimo, da se nam v oknu brskalnika ena nad drugo izpišejo vrednosti med 1 in 9, lahko uporabimo stavek <kbd>do..while</kbd> na tak način:
+   </p>
+   <pre>
+   var i = 0;
+   do
+      document.write(++i + "&lt;br /&gt;");
+   while (i &lt; 9);
+   </pre>
+   
+   
+   <h3>Stavek <kbd>break</kbd></h3>
+   <p>
+   Stavek <kbd>break</kbd> (angl. prekini) uporabimo znotraj ponavljalnega stavka, in z njim predčasno ustavimo izvajanje zanke. Izvajanje programa se nadaljuje s stavkom, ki sledi stavku, iz katerega smo izstopili. Poglejmo si kar <a href="javascript:okno_primer('./primeri/Stavek_break_master.html')">primer</a>.
+   </p>
+   
+   <h3>Stavek <kbd>continue</kbd></h3>
+   <p>
+   Tudi ta stavek uporabimo znotraj ponavljalnega stavka. Za razliko od stavka <kbd>break</kbd> ta stavek ne prekine popolnoma izvajanja zanke, temveč prekine le trenutno iteracijo. Z drugimi besedami, preskočijo se vsi stavki, ki sledijo stavku <kbd>continue</kbd> (angl. nadaljuj). Izvajanje zanke se nadaljuje s preverjanjem pogoja. <a href="javascript:okno_primer('./primeri/Stavek_continue_master.html')">Tukaj</a> je nek brezzvezen a ilustrativen primer s številkami.
+   </p>
+
+   <h3>Stavek <kbd>switch</kbd></h3>
+   <p>
+   <dfn>Izbirni stavek</dfn> oziroma stavek <kbd>switch</kbd> (slov. kretnica) povzroči, da se izvede ena od večih ponujenih alternativ. Takšen je njegov sintaktični zapis:
+   </p>
+   
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   switch (<var>izraz</var>)
+   {
+      case <var>vredn_1</var>: <var>stavki_1</var>;
+      case <var>vredn_2</var>: <var>stavki_2</var>;
+      //...
+      case <var>vredn_n</var>: <var>stavki_n</var>;
+      default: <var>ostalo</var>;
+   }
+   
+   </pre>
+   </td></tr></table>
+   
+   <p>
+   Najprej se določi vrednost izraza, zapisanega v oklepajih, potem pa se ta vrednost po vrsti primerja z vsemi vrednostmi, ki sledijo rezerviranim besedam <kbd>case</kbd> (slov. primer). Čim prva primerjava vrne vrednost <kbd>true</kbd>, se od tistega mesta naprej izvedejo po vrsti vsi stavki, ki so še ostali do konca stavka <kbd>switch</kbd>, vključno s skupino stavkov <kbd><var>ostalo</var></kbd>. Če nobena primerjava ne vrne vrednosti <kbd>true</kbd>, potem se izvedejo le stavki, ki sledijo rezervirani besedi <kbd>default</kbd> (slov. privzeto). Beseda <kbd>default</kbd> s skupino stavkov <kbd><var>ostalo</var></kbd> ni nujno potrebna in jo lahko tudi izpustimo. Ilustrirajmo si izbirni stavek še z diagramom poteka: 
+   </p>
+   
+   <img src="./slike/stavek_switch.gif" alt="Stavek switch" />
+   
+   <p>
+   Če kdo v tem hipu protestira, ali morda celo tolče po računalniku, ga skoraj težko obsojamo. Izbirni stavek v obliki, kakršnega smo predstavili, dejansko ne omogoča izbire med večimi alternativami, ampak zgolj ponuja več vstopnih točk v zaporedje stavkov. S skromno pomočjo stavka <kbd>break</kbd> bo izbirni stavek res postal izbirni stavek. Poglejmo si to na <a href="javascript:okno_primer('./primeri/Stavek_switch_master.html')">primeru</a>.
+   </p>
+   
+   <h3>Oznaka</h3>
+   <p>
+   Oznako (angl. label) postavimo pred ponavljalni stavek, s čimer ga označimo:
+   </p> 
+   <pre>
+   MojaOznaka :
+      <var>ponavljalni_stavek</var>;
+   </pre>
+   <p>
+   Zdaj lahko kjerkoli v označenem ponavljalnem stavku uporabimo stavek <kbd>break</kbd> z isto oznako:
+   </p>
+   <pre>
+   break MojaOznaka;
+   </pre>
+   <p>
+   S takšnim stavkom <kbd>break</kbd> izstopimo iz tega ponavljalnega stavka, tudi če se nahajamo v drugem ponavljalnem stavku, ki je gnezden v označenem stavku. Nivo gnezdenja pri tem ni pomemben. Z oznako je na podoben način mogoče spremeniti delovanje stavka <kbd>continue</kbd>.
+   </p>
+   <p>
+   Osvetlimo zadevo še z enostavnim <a href="javascript:okno_primer('./primeri/Stavek_label_master.html')">primerom</a>. 
+   </p>
+   <h2>Povzetek</h2>
+   <p>
+   V tem poglavju smo spoznali, da spada JavaScript med tako imenovane strukturirane programske jezike. Značilno za te jezike je, da je programe možno graditi le iz stavkov, ki imajo en sam vhod in izhod. Te stavke lahko sestavljamo bodisi tako, da jih nizamo enega za drugim, bodisi jih vstavljamo na vnaprej predvidena mesta v pogojne, ponavljalne ali kakšne druge stavke, ki imajo sami spet le en vhod in izhod. 
+   </p>
+   <p>
+   Stavke, ki smo jih spoznali, lahko v grobem razdelimo v štiri skupine. Prvi so enostavni stavki, kakršna sta na primer priredilni stavek ali deklaracija spremenljivke. V drugo skupino spadata pogojni stavek <kbd>if..else</kbd> in izbirni stavek <kbd>switch</kbd>, ki povzročita, da se glede na določen pogoj izvede ali ne izvede ena od možnih alternativ. Tretja skupina so trije ponavljalni stavki <kbd>while</kbd>, <kbd>for</kbd> in <kbd>do..while</kbd>, ki povzročijo, da se en in isti del programske kode izvrši večkrat. V zadnjo skupino uvrstimo stavka <kbd>break</kbd> in <kbd>continue</kbd>, ki na nek način podirata strukturiranost jezika, saj takorekoč ustvarjata neke dodatne poti in izhode iz sicer strukturiranih stavkov. 
+   </p>
+   <p>
+   Zelo pomembno vlogo igrajo sestavljeni stavki, ki jih ustvarimo tako, da več stavkov enega za drugim nanizamo v par zavitih oklepajev. Na ta način lahko vstavimo več zaporednih stavkov na mesta, ki so sicer predvidena za en sam stavek. 
+   </p>
+</body>
+</html>

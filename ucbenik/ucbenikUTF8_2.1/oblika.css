@@ -1,0 +1,59 @@
+h1, h2, h3, h4, h5, h6 {font-style: italic;}
+
+body {
+       margin-right: 1cm; 
+       margin-left: 0.5cm; 
+       background:#FFFFFF;
+       }
+
+pre.syntax {
+       border:solid thin; 
+       background:#CCFFCC; 
+       padding-right:30px;
+       }
+
+p {text-align: justify;}
+
+p.formula {margin-left: 40px;}
+
+table {border-width: thick;}
+
+table.seznam {
+       border-style: solid;
+       border-color: black;
+       border-top-width: 2px;
+       border-bottom-width: 2px;
+       border-left-width: 0;
+       border-right-width: 0;
+       }
+       
+       
+table.seznam th {
+       padding-right: 40px;
+       text-align: left;
+       border-color: black;
+       border-top-width: 0;
+       border-bottom-width: 1px;
+       border-left-width: 0;
+       border-right-width: 0;
+       }
+       
+table.seznam td {
+       vertical-align: top;
+       padding-right: 40px;
+       padding-top: 5px;
+       padding-bottom: 5px;
+       border-top-width: 0;
+       border-bottom-width: 0;
+       border-left-width: 0;
+       border-right-width: 0;
+       }       
+       
+li.question {
+       margin-top: 15px;
+       }
+
+a {text-decoration: none; color: #FF6060;}
+a:visited {color: #FF6060;}
+a:hover {text-decoration: underline; color: #FF6060;}
+       

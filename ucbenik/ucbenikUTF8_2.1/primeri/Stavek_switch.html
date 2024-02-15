@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Stavek_switch.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<body>
+
+<script language="javascript" type="text/javascript">
+<!--
+   /*Vgrajena funkcija jezika JavaScript
+     prompt() prikaže pogovorno okno, 
+     v katerega lahko vtipkaš 
+     poljubno vrednost. 
+     Ob pritisku na tipko "potrdi"
+     se okno zapre, funkcija pa vrne 
+     vtipkano vrednost. V primeru, da
+     pritisneš "prekliči", se okno tudi 
+     zapre, funkcija pa vrne vrednost null*/
+
+   var barva;
+   barva = prompt("Katera barva ti je všeč?", "");
+     
+   switch(barva)
+   {
+      case "rdeča":    barva = "red";
+                       break;  
+      case "modra":    barva = "blue";
+                       break;  
+      case "zelena":   barva = "green";
+                       break;  
+      case "rumena":   barva = "yellow";
+                       break;  
+      case "vijolična":barva = "purple";
+                       break;  
+      case "oranžna":  barva = "orange";
+                       break;
+      default:         barva = "#BBBBBB";  
+   }
+   
+   document.write("<h1 style='color:" + barva + ";'>");
+   document.write("Barva je taka, kot si jo izbral/a");
+   document.write("</h1>");
+   document.write("<p style='background-color:" + barva + ";'>");
+// -->
+</script>
+   
+   Če je siva, potem imaš črno bel monitor, ali 
+   pa tvoje barve ne poznam. Poznam naslednje barve:</p>
+   
+   <ul>
+      <li>rdeča,</li>
+      <li>modra,</li>
+      <li>zelena,</li>
+      <li>rumena,</li>
+      <li>vijolična in</li>
+      <li>oranžna</li>
+   </ul>
+
+<script language="javascript" type="text/javascript">
+<!--
+   /*vrednost spremenljivk se ohranja, tudi če
+     vmes zapustimo element script in se kasneje
+     spet vrnemo vanj:*/
+   document.write("<p style='background-color:" + barva + ";'>");
+// -->
+</script>
+
+   Če želiš, da se ponovno prikaže pogovorno 
+   okno, da vneseš novo barvo, pritisni 
+   gumb "Naloži stran".</p>
+
+</body>
+</html> 
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

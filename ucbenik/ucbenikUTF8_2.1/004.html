@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+   <title>Red mora biti</title>
+   <link rel="stylesheet" type="text/css"
+         href="oblika.css"
+         title="Ucbenik" />
+   <script language="javascript" type="text/javascript" src="funkcije.js">
+   </script>
+</head>
+<body>
+   <h1>Red mora biti</h1>
+   <p>
+   Zgodi se, da želimo v besedilu predstaviti večje količine podatkov, ki so med seboj navadno na tak ali drugačen način povezani. Če prikaz takšnih podatkov slabo organiziramo, se kaj hitro pripeti, da se bralec med njimi ne bo znašel. Podatke lahko organiziramo v sezname (angl. list) ali tabele (angl. table). 
+   </p>
+   <h2>Seznami</h2>
+   <p>
+   Jezik <acronym title="eXtended HyperText Markup Language">XHTML</acronym> pozna tri osnovne tipe seznamov: <dfn>urejen seznam</dfn>, <dfn>neurejen seznam</dfn> in <dfn>seznam definicij</dfn>. Elementi, s katerimi ustvarjamo sezname, so blokovski elementi.
+   </p>
+   <h3>Urejen seznam</h3>
+   <p>
+   Urejen seznam ustvarimo z elementom <kbd>ol</kbd> (angl. ordered list), posamezne postavke seznama pa z elementi <kbd>li</kbd> (angl. list item), ki jih vstavljamo v element <kbd>ol</kbd>. Neposredno v element <kbd>ol</kbd> ni dovoljeno vstavljati ničesar drugega:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   &lt;ol&gt;
+      &lt;li&gt; postavka ena&lt;/li&gt;
+      &lt;li&gt; postavka dve&lt;/li&gt;
+         . . .
+      &lt;li&gt; postavka n&lt;/li&gt;
+   &lt;/ol&gt;
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   Brskalnik prikaže vsako postavko v svoji vrstici in postavke tudi oštevilči z arabskimi številkami. Z lastnostjo <kbd>type</kbd> lahko spremenimo način številčenja na velike ali male črke oziroma velike ali male rimske številke.  <a href="javascript:okno_primer('./primeri/Urejen_seznam_master.html')">Tukaj</a> je primer.
+   </p>
+   <h3>Neurejen seznam</h3>
+   <p>
+   Neurejen seznam ustvarimo z elementom <kbd>ul</kbd> (angl. unordered list). Tako kot pri urejenem seznamu, tudi tukaj za postavke uporabimo element <kbd>li</kbd>, in tudi tukaj neposredno v element <kbd>ul</kbd> ni dovoljeno vstavljati ničesar drugega. Takšna je sintaksa zapisa neurejenega seznama:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   &lt;ul&gt;
+      &lt;li&gt; postavka ena&lt;/li&gt;
+      &lt;li&gt; postavka dve&lt;/li&gt;
+         . . .
+      &lt;li&gt; postavka n&lt;/li&gt;
+   &lt;/ul&gt;
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   Pred vsako postavko neurejenega seznama brskalnik prikaže črno piko, z lastnostjo <kbd>type</kbd> pa lahko namesto pike prikažemo tudi krogec ali kvadratek. Na <a href="javascript:okno_primer('./primeri/Neurejen_seznam_master.html')">primeru</a> vidimo, kako ta seznam izgleda in kako lahko sezname gnezdimo enega v drugega. Pri gnezdenju moramo upoštevati, da v elementa <kbd>ol</kbd> in <kbd>ul</kbd> ni dovoljeno vstavljati ničesar drugega kot element <kbd>li</kbd>. Zato ustvarimo seznam znotraj seznama tako, da sezam vstavimo v element <kbd>li</kbd>.
+   </p>
+   <h3>Seznam definicij</h3>
+   <p>
+   Seznam definicij je seznam pojmov z ustreznimi definicijami, z drugimi besedami - slovar. Ustvarimo ga z elementom <kbd>dl</kbd> (angl. definition list). Vsak pojem ustvarimo z elementom <kbd>dt</kbd> (angl. definition term), opis pojma pa z elementom <kbd>dd</kbd> (angl. definition description). V element <kbd>dl</kbd> razen elementov <kbd>dt</kbd> in <kbd>dd</kbd> ni dovoljeno vstavljati ničesar. Običajno elementa <kbd>dd</kbd> in <kbd>dt</kbd> nastopata v parih, čeprav to ni obvezno:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   &lt;dl&gt;
+      &lt;dt&gt; pojem ena&lt;/dt&gt;
+      &lt;dd&gt; definicija pojma ena&lt;/dd&gt;
+      &lt;dt&gt; pojem dve&lt;/dt&gt;
+      &lt;dd&gt; definicija pojma dve&lt;/dd&gt;
+         . . .
+      &lt;dt&gt; pojem n&lt;/dt&gt;
+      &lt;dd&gt; definicija pojma n&lt;/dd&gt;
+   &lt;/dl&gt;
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   In <a href="javascript:okno_primer('./primeri/Seznam_definicij_master.html')">takole</a> izgleda seznam definicij v akciji.
+   </p>
+   <h2>Tabele</h2>
+   <p>
+   V tabeli prikazujemo podatke urejene v stolpce in vrstice. Najenostavnejša oblika tabele predstavlja pravilno pravokotno mrežo celic. Večina celic vsebuje podatke, nekatere celice, običajno na vrhu ali na levi strani tabele, pa vsebujejo naslove stolpcev in vrstic. V jeziku <acronym title="eXtended HyperText Markup Language">XHTML</acronym> je najosnovnejša tabela sestavljena iz treh elementov. Celotna tabela je vsebovana v elementu <kbd>table</kbd>, ki je blokovski element. Tabela vsebuje eno ali več vrstic, predstavljenih z elementom <kbd>tr</kbd> (angl. table row), od katerih spet vsak vsebuje eno ali več celic s podatki, ki so predstavljene z elementi <kbd>td</kbd> (angl. table data). Sintaksa osnovne tabele izgleda takole: 
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   &lt;table&gt;
+      &lt;tr&gt;
+         &lt;td&gt;
+            vsebina celice (1. vrstica, 1. stolpec)
+         &lt;/td&gt;
+         &lt;td&gt;
+            vsebina celice (1. vrstica, 2. stolpec)
+         &lt;/td&gt;
+         ...
+      &lt;/tr&gt;
+      &lt;tr&gt;
+         &lt;td&gt;
+            vsebina celice (2. vrstica, 1. stolpec)
+         &lt;/td&gt;
+         &lt;td&gt;
+            vsebina celice (2. vrstica, 2. stolpec)
+         &lt;/td&gt;
+         ...
+      &lt;/tr&gt;
+      ...
+   &lt;/table&gt;
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   Navadno poleg omenjenih treh elementov uporabimo še element <kbd>caption</kbd> (slov. napis, naslov), ki predstavlja napis nad tabelo, in element <kbd>th</kbd> (angl. table header), ki predstavlja celico z naslovom stolpca ali vrstice. Vsebina elementa <kbd>th</kbd> se pogosto prikaže v mastnem tisku in osredinjeno. Neposredno v element <kbd>table</kbd> lahko vstavljamo le elementa <kbd>tr</kbd> in <kbd>caption</kbd>, v element <kbd>tr</kbd> pa lahko vstavljamo le elementa <kbd>td</kbd> in <kbd>th</kbd>. Stvar je nekako zapletena, zato bo najbolje, da si kar takoj ogledamo <a href="javascript:okno_primer('./primeri/Tabela_master.html')">zgled</a> enostavne tabele.
+   </p>
+   <p>
+   Število vrstic tabele je enako številu elementov <kbd>tr</kbd>, medtem ko je število stolpcev enako največjemu številu celic (elementov <kbd>td</kbd> ali <kbd>th</kbd> ) v eni vrstici. V primeru, ki smo si ga pravkar ogledali, smo v celice vpisovali običajno besedilo. V resnici je v celice dovoljeno vstaviti praktično karkoli.
+   </p>
+   <h3>Več nadzora nad tabelami</h3>
+   <p>
+   Videli smo, da enostavnih tabel, kjer so vse celice enakomerno razporejene, le ni tako težko zgraditi. Kaj pa, če želimo, da se katere celice raztezajo čez več stolpcev ali vrstic? V tem primeru lahko elementoma <kbd>td</kbd> in <kbd>th</kbd> dodamo lastnosti <kbd>colspan</kbd> in <kbd>rowspan</kbd>. S tem povemo brskalniku, naj celico raztegne (angl. span = raztezati se) prek več stolpcev (angl. column) oziroma vrstic (angl. row). 
+   </p>
+   <p>
+   Tabeli lahko spreminjamo položaj v besedilu s pomočjo lastnosti <kbd>align</kbd>, ki ima lahko vrednosti <kbd>left</kbd>, <kbd>right</kbd> ali <kbd>center</kbd>. Če uporabimo katero od prvih dveh vrednosti, se besedilo ovije okrog tabele, podobno kot smo to srečali pri elementu <kbd>img</kbd>. Elementi <kbd>tr</kbd>, <kbd>th</kbd> in <kbd>td</kbd> poznajo za uravnavo svoje vsebine lastnosti <kbd>align</kbd> (z možnimi vrednostmi <kbd>left</kbd>, <kbd>center</kbd>, <kbd>right</kbd> in <kbd>justify</kbd>) in <kbd>valign</kbd> (angl. vertical align = navpična uravnava) (z možnimi vrednostmi <kbd>bottom</kbd> (slov. dno), <kbd>center</kbd> in <kbd>top</kbd> (slov. vrh)). Oglejmo si vse to na <a href="javascript:okno_primer('./primeri/Zapletena_tabela_master.html')">primeru</a> malo bolj zapletene tabele. 
+   </p>
+   <p>
+   Omenimo še dve lastnosti elementa <kbd>table</kbd>, s katerima lahko spreminajmo videz tabele. S prvo, <kbd>cellspacing</kbd> (angl. cell = celica, angl. spacing = razmik), določimo razmik med posameznimi celicami tabele. Druga lastnost, <kbd>cellpadding</kbd> (angl. padding = polnjenje), vstavi v celico prazen prostor okrog njene vsebine. Naslednji <a href="javascript:okno_primer('./primeri/Razmiki_v_tabeli_master.html')">primer</a> bo dodatno razsvetlil učinek obeh lastnosti.
+   </p>   
+   <h2>Oblikovanje strani s tabelami</h2>
+   <p>
+   V tiskanih dokumentih tabele opravljajo zgolj pomožno funkcijo prikazovanja podatkov v zvezi z vsebino spremljevalnega besedila. Tabele na spletnih straneh ohranjajo to ilustrativno vlogo, poleg tega pa služijo oblikovalcem za oblikovanje spletnih strani. Osnova grafičnega oblikovanja je razporejanje posameznih elementov po likovni površini in v odnosu drug proti drugemu. Tabele predstavljajo zelo pomembno orodje pri takšnem razporejanju, saj je z njimi moč ustvariti razporeditveno mrežo, v katero potem vstavljamo posamezne elemente. Pred prihodom slogov <acronym title="Cascading Style Sheets">CSS</acronym>, ki podpirajo razvrščanje, je bilo to možno doseči edino s tabelami. Vendar celo sedaj, v času pisanja tega učbenika, tabele še vedno ostajajo najbolj običajno uporabljeno sredstvo za oblikovanje spletnih strani.
+   </p>
+   <p>
+   Področje oblikovanja presega okvire našega učbenika, zato si poglejmo samo zelo enostaven <a href="javascript:okno_primer('./primeri/Oblika_s_tabelo_master.html')">primer</a> uporabe tabele pri oblikovanju spletne strani.
+   </p>
+   <h2>Povzetek</h2>
+   <p>
+   Spoznali smo tri vrste seznamov. V urejenem seznamu, ki ga ustvarimo z elementom <kbd>ol</kbd>, se postavke (elementi <kbd>li</kbd>) številčijo. V neurejenem seznamu, tega ustvarimo z elementom <kbd>ul</kbd>, so pred postavkami pike, krogci ali kvadratki. Oba tipa seznamov lahko gnezdimo, tako da sezname vstavljamo v elemente <kbd>li</kbd>. Seznam definicij ustvarimo z elementom <kbd>dl</kbd>. Običajno ga uporabljamo za prikaz pojmov (elementi <kbd>dt</kbd>) s pripadajočimi definicijami (elementi <kbd>dd</kbd>).
+   </p>
+   <p>
+   V elementa <kbd>ol</kbd> in <kbd>ul</kbd> je dovoljeno vstavljati samo element <kbd>li</kbd>, v element <kbd>dl</kbd> pa samo elementa <kbd>dt</kbd> in <kbd>dd</kbd>.
+   </p>
+   <p>
+   Da sestavimo tabelo, potrebujemo najmanj tri elemente: <kbd>table</kbd> predstavlja celotno tabelo, z elementi <kbd>tr</kbd> ustvarimo vrstice, vanje pa vstavljamo celice, ki jih ustvarimo z elementi <kbd>td</kbd>. Celice z naslovi, ki se navadno nahajajo v prvi vrstici ali levem stolpcu, ustvarimo z elementom <kbd>th</kbd>. Tabeli lahko dodamo tudi naslov, ki ga zapišemo v element <kbd>caption</kbd>.
+   </p>
+   <p>
+   Neposredno v element <kbd>table</kbd> lahko vstavimo le elementa <kbd>tr</kbd> in <kbd>caption</kbd>, v element <kbd>tr</kbd> pa je dovoljeno vstaviti le elementa <kbd>td</kbd> in <kbd>th</kbd>. V element <kbd>td</kbd>, ki predstavlja posamezno celico tabele, je dovoljeno vstaviti praktično karkoli.
+   </p>
+   <p>
+   Tabele se pogosto uporabljajo tudi za oblikovanje zahtevnejših spletnih strani.
+   </p>
+</body>
+</html>

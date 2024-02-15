@@ -1,0 +1,534 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+   <title>Računajte na nas</title>
+   <link rel="stylesheet" type="text/css"
+         href="oblika.css"
+         title="Ucbenik" />
+   <script language="javascript" type="text/javascript" src="funkcije.js">
+   </script>
+</head>
+<body>
+   <h1>Računajte na nas</h1>
+   <p>
+   Jezik <acronym title="eXtended HyperText Markup Language">XHTML</acronym>, ki smo ga spoznavali doslej, nam omogoča le oblikovanje statičnih strani. Videli smo, da niti z uporabo obrazcev ne moremo doseči, da bi uporabnik aktivno posegal v obliko strani ali bil deležen kakršnekoli dinamične obdelave podatkov, ki je značilna za pravo programsko opremo. Za to potrebujemo pravi programski jezik, kakršen je JavaScript. Če smo čisto natančni, tudi JavaScript ni čisto pravi programski jezik, ampak je tako imenovan <dfn>skriptni</dfn> jezik. V praksi to pomeni, da se programi ne prevajajo v izvršilno (angl. executable) kodo, ampak se tolmačijo sproti, ko pač nastopi potreba, da se izvedejo. Vendar brez panike! Zaenkrat nas ta razlika ne bo čisto nič skrbela in kar pogumno se bomo lotili programiranja.
+   </p>
+   <h2>Elementa <kbd>script</kbd> in <kbd>noscript</kbd></h2>
+   <p>
+   Programsko kodo JavaScript pišemo v element <kbd>script</kbd>, ki mu lastnost <kbd>language</kbd> (slov. jezik) nastavimo na vrednost <kbd>javascript</kbd>, lastnost <kbd>type</kbd> pa na vrednost <kbd>text/javascript</kbd>. Tako kot pravila slogov <acronym title="Cascading Style Sheets">CSS</acronym>, je priporočljivo tudi kodo jezika JavaScript skriti pred starimi brskalniki, ki jezika ne podpirajo:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   &lt;script language="javascript" type="text/javascript"&gt;
+   &lt;!--
+      //koda JavaScript
+   // --&gt;
+   &lt;/script&gt;
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   Dve poševnici (<kbd>//</kbd>), ki smo ju uporabili, v jeziku JavaScript pomenita začetek opombe. Vse od teh dveh znakov pa do konca vrstice se pri tolmačenju kode prezre. Poleg tega lahko za opombe uporabimo tudi skupini zankov <kbd>/*</kbd> in <kbd>*/</kbd>, ki smo ju že srečali pri slogovnih polah. Ta način označevanja opomb se navadno uporablja, kadar imamo opombo, ki obsega več vrstic.
+   </p>
+   <p>
+   Kodo JavaScript lahko zapišemo tudi v posebno datoteko, ki ji dodelimo končnico <kbd>.js</kbd> in datoteko vključimo z lastnostjo <kbd>src</kbd> (angl. source = vir). V tem primeru kode ni potrebno skrivati pred starimi brskalniki, saj bodo neznan element <kbd>script</kbd> popolnoma ignorirali in do datoteke s kodo JavaScript sploh ne bodo prišli:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   &lt;script language="javascript" type="text/javascript" src="<var>ime_datoteke</var>.js"&gt;
+   &lt;/script&gt;
+      
+   </pre>
+   </td></tr></table>
+   <p>
+   V primeru, da brskalnik jezika JavaScript ne podpira, ali pa, da je uporabnik podporo onemogočil, ponudimo neko alternativno besedilo, ki ga vstavimo v element <kbd>noscript</kbd>:
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   &lt;noscript&gt;
+   Če hočeš videti to stran v celoti, omogoči JavaScript!
+   &lt;/noscript&gt;
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   To besedilo se bo prikazalo le, če JavaScript ni omogočen ali če ga brskalnik ne podpira.
+   </p>
+   <h2>Moj prvi program</h2>
+   <p>
+   Prvi program, ki si ga bomo ogledali, bo precej brezzvezen, a kljub temu se bomo pri njem zadržali malo dlje, saj bomo spoznali nekaj zelo pomembnih principov. Program je videti takole:   
+   </p>
+   <a id="koda" name="koda"></a>
+   <pre>
+   var x;
+   var y;
+   x = 3.7;
+   y = x + 20;
+   document.write(y);
+   document.write("&lt;br /&gt;");
+   document.write(x);
+   </pre>
+   <p>
+   Primer lahko takoj <a href="javascript:okno_primer('./primeri/Spremenljivke_master.html')">preizkusite</a>, da bo nadaljnja razprava razumljivejša. Prvi dve vrstici predstavljata <dfn>deklaracijo</dfn> (angl. declaration = napoved) <dfn>spremenljivk</dfn> (angl. variable). Spremenljivko napovemo oziroma deklariramo tako, da najprej zapišemo besedo <kbd>var</kbd>, potem ime spremenljivke in na koncu podpičje. Podpičje ni obvezno, ampak je priporočljivo. Zanimivo je, da niti deklaracija ni vedno obvezna, vendar je priporočljiva iz razlogov, ki jih bomo spoznali kasneje.
+   </p>
+   <p>
+   <a id="imena" name="imena"></a>
+   Za spremenljivko lahko izberemo ime, ki vsebuje:
+   </p>
+   <ul>
+      <li>velike ali male črke angleške abecede,</li>
+      <li>desetiške cifre,</li>
+      <li>podčrtaj (<kbd>_</kbd>).</li>
+   </ul>
+   <p>
+   Poleg tega lahko ime vsebuje tudi znak za dolar (<kbd>$</kbd>), vendar je ta namenjen le strojno generirani kodi in naj bi se ga praviloma ne uporabljalo. Pri izbiri imena spremenljivke moramo upoštevati še naslednja pravila:
+   </p>
+   <ul>
+      <li>prvi znak imena ne sme biti desetiška cifra,</li>
+      <li>JavaScript loči velike in male črke,</li>
+      <li>prepovedana je uporaba rezerviranih besed.</li>
+   </ul>
+   <p>
+   Rezervirane besede imajo v jeziku vnaprej določene posebne vloge. V jeziku JavaScript so rezervirane naslednje besede:
+   </p>
+   <table border="1" cellpadding="5">
+   <tr>
+      <td><kbd>abstract</kbd></td>  <td><kbd>else</kbd></td>        <td><kbd>int</kbd></td>        <td><kbd>switch</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>boolean</kbd></td>   <td><kbd>extends</kbd></td>     <td><kbd>interface</kbd></td>  <td><kbd>synchronized</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>break</kbd></td>     <td><kbd>false</kbd></td>       <td><kbd>long</kbd></td>       <td><kbd>this</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>byte</kbd></td>      <td><kbd>final</kbd></td>       <td><kbd>native</kbd></td>     <td><kbd>throw</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>case</kbd></td>      <td><kbd>finally</kbd></td>     <td><kbd>new</kbd></td>        <td><kbd>throws</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>char</kbd></td>      <td><kbd>for</kbd></td>         <td><kbd>package</kbd></td>    <td><kbd>true</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>class</kbd></td>     <td><kbd>function</kbd></td>    <td><kbd>private</kbd></td>    <td><kbd>try</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>const</kbd></td>     <td><kbd>goto</kbd></td>        <td><kbd>protected</kbd></td>  <td><kbd>typeof</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>continue</kbd></td>  <td><kbd>if</kbd></td>          <td><kbd>public</kbd></td>     <td><kbd>var</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>default</kbd></td>   <td><kbd>implements</kbd></td>  <td><kbd>return</kbd></td>     <td><kbd>void</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>delete</kbd></td>    <td><kbd>import</kbd></td>      <td><kbd>short</kbd></td>      <td><kbd>while</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>do</kbd></td>        <td><kbd>in</kbd></td>          <td><kbd>static</kbd></td>     <td><kbd>with</kbd></td>
+   </tr>
+   <tr>
+      <td><kbd>double</kbd></td>    <td><kbd>instanceof</kbd></td>  <td><kbd>super</kbd></td>      <td><kbd>&nbsp;</kbd></td>
+   </tr>
+   </table>
+   <p>
+   Za primer si oglejmo nekaj veljavnih imen spremenljivk:
+   </p>
+   <pre>
+   stevec
+   maks_vrednost
+   _super
+   _42
+   Protected
+   </pre>
+   <p>
+   Naslednja imena niso dovoljena:
+   </p>
+   <pre>
+   števec
+   maks vrednost
+   super
+   42
+   protected
+   </pre>
+   <p>
+   Spremenljivke igrajo v programih prav posebno vlogo hranjenja podatkov in v tem oziru delujejo kot spomin. Spremenljivki navadno v določeni točki programa na tak ali drugačen način <dfn>priredimo</dfn> (angl. assign) neko <dfn>vrednost</dfn> (angl. value), ki jo kasneje uporabimo. Tudi človeški možgani delujejo podobno. V nekem trenutku si zapomnijo določene podatke in jih hranijo za kasnejšo uporabo.
+   </p>
+   <p>
+   Ko se <a href="#koda">gornji</a> program izvaja v brskalniku, se moramo zavedati, da se v njem ne more zgoditi vse hkrati. Za izvajanje programa je nujno potreben nek vrstni red in določen čas. Zelo pomembno je, da si zapomnimo, da se ukazi oziroma <dfn>stavki</dfn>, kot jih bomo imenovali, izvajajo po vrsti, kakor so zapisani. Ko se en stavek zaključi, se prične izvajati naslednji.
+   </p>
+   <p>
+   V našem programu se bo torej takoj po tem, ko smo napovedali spremenljivki <var>x</var> in <var>y</var>, spremenljivki <var>x</var> priredila vrednost 3.7. To povzroči stavek
+   </p>
+   <pre>
+   x = 3.7;
+   </pre>
+   <p>
+   Od tu naprej bo imela (hranila) spremenljivka <var>x</var> vrednost 3.7. Spremenljivki smo priredili vrednost s <dfn>priredilnim operatorjem</dfn> (<kbd>=</kbd>) (angl. assignment operator). Ta operator vrednost, ki se pojavi na njegovi desni strani, shrani v spremenljivko, ki se pojavi na njegovi levi. Na koncu smo zapisali podpičje. To je potrebno le, kadar pišemo več stavkov v eni vrstici, vendar je priporočljivo, da kljub temu vsak stavek zaključite s podpičjem. Več o tem bomo povedali v <a href="008.html">naslednjem poglavju</a>, ko bomo govorilli o stavkih.
+   </p>
+   <p>
+   Še eno vrstico niže v programu vidimo, da lahko na desni strani priredilnega operatorja nastopi poljuben matematični izraz, katerega vrednost se prenese v spremenljivko na njegovi levi. Takole postane spremenljivka <var>y</var> enaka vrednosti spremenljivke <var>x</var>, povečani za 20:
+   </p>
+   <pre>
+      y = x + 20;
+   </pre>
+   <p>
+   Pri tem se vrednost spremenljivke <var>x</var> ne spremeni. 
+   </p>
+   <p>
+   Še vrstico niže s klicem funkcije (oziroma postopka) <kbd>write()</kbd> objekta <kbd>document</kbd> (brez panike: o funkcijah in objektih bomo podrobno govorili v <a href="009.html">9. poglavju</a>) izpišemo vrednost spremenljivke <var>y</var> v oknu brskalnika:
+   </p>
+   <pre>
+   document.write(y);
+   </pre>
+   <p>
+   Če ne bi želeli izpisati vrednosti spremenljivke, ampak njeno ime, potem bi morali dati ime v enojne ali dvojne navednice:
+   </p>
+   <pre>
+   document.write("y");
+   </pre>
+   <p>
+   Na ta način lahko izpišemo poljubno besedilo. Če vsebuje besedilo, ki ga izpisujemo, značke jezika <acronym title="eXtended HyperText Markup Language">XHTML</acronym>, se bodo pred izpisom značke tolmačile. Tako pomeni naslednji stavek pomik v novo vrstico v oknu brskalnika:
+   </p>
+   <pre>
+   document.write("&lt;br /&gt;");
+   </pre>
+   <a id="tipi" name="tipi"></a>
+   <h2>Vrste spremenljivk</h2>
+   <p>
+   V prejšnjem primeru smo spremenljivkama <var>x</var> in <var>y</var> priredili številske vrednosti. Spremenljivki sta tako avtomatično postali spremenljivki <dfn>številskega tipa</dfn>, ki spada med osnovne (angl. primitive) tipe. JavaScript pozna pet osnovnih tipov spremenljivk:
+   </p>
+   <dl>
+   <dt><strong>številski</strong> (angl. number)</dt>
+   <dd>vsebuje cela in realna števila ter posebni vrednosti <kbd>NaN</kbd> (angl. Not a Number = ni število) in <kbd>Infinity</kbd> (slov. neskončno). Vrednost <kbd>NaN</kbd> dobimo, če napravimo operacijo nad spremenljivko, ki smo jo deklarirali, vendar ji nismo priredili nobene konkretne vrednosti.  Vrednosti so zapisane v 64-bitni plavajoči vejici (standard IEEE 754);</dd>
+   <dt><strong>Boolov</strong> (angl. Boolean)</dt>
+   <dd>zajema logični vrednosti <kbd>true</kbd> (slov. pravilno) in <kbd>false</kbd> (slov. napačno); </dd>
+   <dt><strong>znakovni niz</strong> (angl. string)</dt>
+   <dd>vsebuje besedilo v dvojnih ali enojnih navednicah; Če med navednicami ni nobenega znaka (<kbd>""</kbd> ali <kbd>''</kbd>), je to še vedno veljaven znakovni niz.</dd>
+   <dt><strong>ničelni</strong> (angl. null)</dt>
+   <dd>pozna eno samo vrednost (<kbd>null</kbd>), ki pomeni prazno ali neobstoječo spremenljivko;</dd>
+   <dt><strong>nedoločen</strong> (angl. undefined)</dt>
+   <dd>pozna eno samo vrednost (<kbd>undefined</kbd>), ki označuje spremenljivko, ki ji nismo priredili nobene vrednosti;</dd>
+   </dl>
+   <p>
+   Spremenljivki se tip določi oziroma spremeni avtomatično, čim ji priredimo konkretno vrednost.
+   </p>
+   <p>
+   Ilustrirajmo vse to s <a href="javascript:okno_primer('./primeri/Tip_spremenljivke_master.html')">primerom</a>.
+   </p>
+   <h2>Operatorji in izrazi</h2>
+   <p>
+   V primerih, ki smo jih srečali doslej, smo uporabili nekaj preprostih operatorjev. Srečali smo priredilni operator (<kbd>=</kbd>) ter operatorja seštevanja in odštevanja. V tem razdelku bomo spoznali še vrsto drugih operatorjev.
+   </p>
+   <p>
+   V splošnem je operator znak ali skupina znakov, ki označujejo določeno operacijo. Ta operacija se izvede nad eno ali več vhodnimi vrednostmi, ki jim pravimo <dfn>operandi</dfn> ter vrne rezultat v obliki ene same vrednosti. Poljubni kombinaciji operandov in operatorjev pravimo <dfn>izraz</dfn> (angl. expression). V splošnem je izraz lahko:
+   </p>
+   <ul>
+      <li>konstanta (npr. <kbd>3</kbd>, <kbd>null</kbd>, <kbd>"trije pujski"</kbd>, <kbd>false</kbd>)</li>
+      <li>spremenljivka (npr. <kbd>x</kbd>, <kbd>stevec</kbd> )</li>
+      <li>klic funkcije oziroma postopka (npr. <kbd>document.write()</kbd>)</li>
+      <li>poljubna kombinacija gornjih treh postavk z ustreznimi operatorji</li>
+   </ul>
+   <p>
+   Za izraz pravimo, da <dfn>ima</dfn> ali pa tudi <dfn>vrne</dfn> vrednost. To je vrednost, ki jo dobimo, če izvedemo vse operacije, ki so v izrazu zapisane. Na primer, izraz <kbd>4</kbd> ima vrednost 4, izraz <kbd>3&nbsp;+&nbsp;7</kbd> pa 10. Ali pa, izraz <kbd>y&nbsp;-&nbsp;1</kbd> ima vrednost, za ena manjšo od vrednosti spremenljivke <var>y</var>, če ima <var>y</var> določeno vrednost. Sicer je vrednost tega izraza <kbd>Nan</kbd>.
+   </p>
+   <p>
+   Operatorje, ki jih uporabljamo v izrazih, ločimo v tri skupine. <dfn>Unarni</dfn> operatorji so operatorji, ki primejo le na en vhodni operand. Na primer negativen predznak (<kbd>-</kbd>) je unaren operator, ki zamenja predznak izraza, pred katerim stoji. Večina operatorjev jezika JavaScript so <dfn>binarni</dfn> operatorji, ki delujejo z dvema operandoma. Primera binarnih operatorjev sta seštevanje in množenje. Samo en operator jezika JavaScript je <dfn>ternarni</dfn> operator, ki deluje nad tremi operandi. Spoznali ga bomo ob koncu tega poglavja.  
+   </p>
+   <p>
+   Iz enostavnih unarnih, binarnih in ternarnih izrazov lahko gradimo kompleksnejše izraze. Da lahko izračunamo vrednosti zapletenih izrazov, jih moramo znati razčleniti (angl. parse), pri čemer upoštevamo <dfn>prednost operatorjev</dfn> (angl. operator precedence). Na primer, vrednost izraza 
+   </p>
+   <pre>
+   7 * 5 - 4 * 3
+   </pre>
+   <p>
+   izračunamo tako, da najprej ugotovimo vrednost obeh zmnožkov in šele na koncu desni zmnožek odštejemo od levega, kajti operacija množenja ima prednost pred odštevanjem. Vrednost izraza je tako 23.
+   </p>
+   <p>
+   Spodnja tabela prikazuje prednostno lestvico operatorjev jezika JavaScript. Operatorji, ki so višje, imajo prednost pred operatorji, ki so pod njimi. Operatorji, ki so v tabeli v isti vrsti, imajo vsi isto prednost in se izvajajo po vrsti od leve proti desni ali od desne proti levi. Drugačen vrstni red izvajanja lahko dosežemo z uporabo oklepajev.
+   </p>
+   <table border="1" cellpadding="5" style="font-size:14;">
+   <tr><th>prednost</th>   <th>operatorji</th>    <th>vrstni red izvajanja</th></tr>
+   <tr><td>1</td> <td>oklepaji, klic funkcije ali postopka, indeks zbirke</td>   <td>&nbsp;</td></tr>
+   <tr><td>2</td> <td><kbd>!</kbd>, <kbd>~</kbd>, <kbd>-</kbd> (unarni), <kbd>++</kbd>, <kbd>--</kbd>, <kbd>typeof</kbd>, <kbd>new</kbd></td>   <td>z desne proti levi</td></tr>
+   <tr><td>3</td> <td><kbd>*</kbd>, <kbd>/</kbd>, <kbd>%</kbd></td>   <td>z leve proti desni</td></tr>
+   <tr><td>4</td> <td><kbd>+</kbd>, <kbd>-</kbd> (binarni)</td>   <td>z leve proti desni</td></tr>
+   <tr><td>5</td> <td><kbd>&lt;&lt;</kbd>, <kbd>&gt;&gt;</kbd>, <kbd>&gt;&gt;&gt;</kbd></td>   <td>z leve proti desni</td></tr>
+   <tr><td>6</td> <td><kbd>&lt;</kbd>, <kbd>&lt;=</kbd>, <kbd>&gt;</kbd>, <kbd>&gt;=</kbd>, </td>   <td>z leve proti desni</td></tr>
+   <tr><td>7</td> <td><kbd>==</kbd>, <kbd>!=</kbd>, <kbd>===</kbd>, <kbd>!==</kbd></td>   <td>z leve proti desni</td></tr>
+   <tr><td>8</td> <td><kbd>&amp;</kbd></td>   <td>&nbsp;</td></tr>
+   <tr><td>9</td> <td><kbd>^</kbd></td>   <td>&nbsp;</td></tr>
+   <tr><td>10</td> <td><kbd>|</kbd></td>   <td>&nbsp;</td></tr>
+   <tr><td>11</td> <td><kbd>&amp;&amp;</kbd></td>   <td>&nbsp;</td></tr>
+   <tr><td>12</td> <td><kbd>||</kbd></td>   <td>&nbsp;</td></tr>
+   <tr><td>13</td> <td><kbd>?:</kbd></td>   <td>&nbsp;</td></tr>
+   <tr><td>14</td> <td><kbd>=</kbd>, <kbd>+=</kbd>, <kbd>-=</kbd>, <kbd>*=</kbd>, <kbd>/=</kbd>, <kbd>%=</kbd>, <kbd>&lt;&lt;=</kbd>, <kbd>&gt;&gt;=</kbd>, <kbd>&gt;&gt;&gt;=</kbd>, <kbd>&amp;=</kbd>, <kbd>^=</kbd>, <kbd>|=</kbd> </td>   <td>z desne proti levi</td></tr>
+   <tr><td>15</td> <td>vejični operator (<kbd>,</kbd>)</td>   <td>&nbsp;</td></tr>
+   </table>
+   <p>
+   Operatorje jezika JavaScript lahko razdelimo v naslednje skupine:
+   </p>
+   <ul>
+      <li>aritmetični,</li>
+      <li>logični,</li>
+      <li>primerjalni,</li>
+      <li>nad znakovnimi nizi,</li>
+      <li>bitni,</li>
+      <li>priredilni,</li>
+      <li>pogojni</li>
+   </ul>
+   <p>
+   Oglejmo si vsako od naštetih skupin nekoliko podrobneje.
+   </p>
+   <h3>Aritmetični operatorji</h3>
+   <p>
+   Aritmetični operatorji so nam precej domači, saj jih uporabljamo pri vsakdanjem računanju. Aritmetični operatorji, ki jih podpira jezik JavaScript, so zbrani v naslednji tabeli:
+   </p>
+   <table border="1" cellspacing="0" class="seznam">
+   <tr><th>operator</th>      <th>opis</th></tr>
+   <tr><td><kbd>+</kbd></td>  <td>seštevanje</td></tr>
+   <tr><td><kbd>-</kbd></td>  <td>odštevanje ali predznak</td></tr>
+   <tr><td><kbd>*</kbd></td>  <td>množenje</td></tr>
+   <tr><td><kbd>/</kbd></td>  <td>deljenje</td></tr>
+   <tr><td><kbd>%</kbd></td>  <td>modulus (ostanek pri celoštevilskem deljenju)</td></tr>
+   <tr><td><kbd>++</kbd></td> <td>prištej ena in vrni vrednost (ali vrni vrednost in prištej ena)</td></tr>
+   <tr><td><kbd>--</kbd></td> <td>odštej ena in vrni vrednost (ali vrni vrednost in odštej ena)</td></tr>
+   </table>
+   <p>
+   </p>
+   Prvi štije operatorji so nam znani že iz nižjih razredov osnovne šole in jih ne bomo posebej obravnavali.
+   <p>
+   Operator modulus nam vrne ostanek pri deljenju dveh celoštevilskih vrednosti. Na primer, izraz <kbd>19 % 4</kbd> ima vrednost 3, kajti 19 / 4 je enako 4 z ostankom 3.
+   </p>
+   <p>
+   Operatorja <kbd>++</kbd> in <kbd>--</kbd> prištejeta oziroma odštejeta od operanda konstantno vrednost 1. Vrednost operanda se pri tem spremeni, zato je operand teh dveh operatorjev lahko izključno spremenljivka. Kadar se izraz, v katerem nastopa kateri od obeh operatorjev, pojavlja kot del nekega kompleksnejšega izraza, je pomembno, ali postavimo operator pred ali za spremenljivko. Če postavimo operator pred spremenljivko, se najprej spremeni vrednost spremenljivke za 1, potem pa se ta spremenjenena vrednost uporabi v ostalem izrazu (pravimo, da se vrednost spremenljivke spremeni pred uporabo). Če postavimo operator za spremenljivko, potem se vrednost spremenljivke še vedno spremeni, v izrazu pa se uporabi stara vrednost spremenljivke (pravimo, da se vrednost spremenljivke spremeni po uporabi). 
+   </p>
+   <p>
+   Vzemimo za primer, da imamo v programu spremenljivko <var>q</var>, ki ima vrednost 13. Tako bo stavek
+   </p>
+   <pre>
+   document.write(++q);
+   </pre>
+   <p>
+   izpisal vrednost 14, stavek
+   </p>
+   <pre>
+   document.write(q++);
+   </pre>
+   <p>
+   pa vrednost 13. Spremenljivki <var>q</var> vrednost v obeh primerih povečamo na 14. V prvem primeru jo povečamo, preden jo uporabimo (izpišemo), v drugem primeru pa šele potem, ko smo njeno vrednost že uporabili (izpisali).
+   </p>   
+   <p>
+   Operatorja <kbd>++</kbd> in <kbd>--</kbd> sta od aritmetičnih operatorjev edina, ki vplivata na vrednost spremenljivke. Ostali operatorji pustijo vrednost spremenljivke nedotaknjeno, zato lahko z njimi izvajamo operacije nad poljubnimi operandi in ne le nad spremenljivkami. 
+   </p>
+   <p>
+   Preden gremo na naslednjo skupino operatorjev, razčistimo delovanje aritmetičnih operatorjev še na <a href="javascript:okno_primer('./primeri/Aritmeticni_operatorji_master.html')">primeru</a>.
+   </p>
+
+   <h3>Primerjalni operatorji</h3>
+   <p>
+   S primerjalnimi operatorji primerjamo dve vrednosti, da ugotovimo, v kakšnem razmerju sta si. Rezultat primerjave je Boolova vrednost <kbd>true</kbd>, če razmerje drži oziroma <kbd>false</kbd>, če ne drži.  Operatorji, ki so na voljo v jeziku JavaScript, so zbrani v naslednji tabeli:
+   </p>
+   <table border="1" cellspacing="0" class="seznam">
+   <tr><th>operator</th>      <th>opis</th></tr>
+   <tr><td><kbd>==</kbd></td>  <td>enak?</td></tr>
+   <tr><td><kbd>===</kbd></td>  <td>striktno enak?</td></tr>
+   <tr><td><kbd>!=</kbd></td>  <td>različen?</td></tr>
+   <tr><td><kbd>!==</kbd></td>  <td>striktno različen?</td></tr>
+   <tr><td><kbd>&lt;</kbd></td>  <td>manjši kot?</td></tr>
+   <tr><td><kbd>&lt;=</kbd></td>  <td>manjši ali enak?</td></tr>
+   <tr><td><kbd>&gt;</kbd></td>  <td>večji kot?</td></tr>
+   <tr><td><kbd>&gt;=</kbd></td>  <td>večji ali enak?</td></tr>
+   </table>
+   <p>
+   Operatorja, ki preverjata enakost (<kbd>==</kbd>) oziroma različnost (<kbd>!=</kbd>), pred preverjanjem pretvarjata podatkovne tipe, če so ti različni. Tako na primer izraz <kbd>5&nbsp;==&nbsp;"5"</kbd> vrne vrednost <kbd>true</kbd>, čeprav v resnici primerjamo številčno vrednost (<kbd>5</kbd>) z znakovnim nizem (<kbd>"5"</kbd>), kar sta v osnovi dve različni stvari. Operatorja, ki preverjata striktno enakost (<kbd>===</kbd>) oziroma različnost (<kbd>!==</kbd>), vrneta <kbd>true</kbd> le v primeru, da se obe strani ujemata tudi po tipu. Izraz <kbd>5&nbsp;===&nbsp;"5"</kbd> torej vrne <kbd>false</kbd>. Oglejmo si še <a href="javascript:okno_primer('./primeri/Primerjalni_operatorji_master.html')">primer</a>.
+   </p>
+
+   <h3>Logični operatorji</h3>
+   <p>
+   Z logičnimi operatorji lahko izvajamo Boolove operacije kot so <dfn>logični in</dfn> (angl. and), <dfn>logični ali</dfn> (angl. or) in <dfn>negacija</dfn>:
+   </p>
+   <table border="1" cellspacing="0" class="seznam">
+   <tr><th>operator</th>      <th>opis</th></tr>
+   <tr><td><kbd>&amp;&amp;</kbd></td>  <td>logični in</td></tr>
+   <tr><td><kbd>||</kbd></td>  <td>logični ali</td></tr>
+   <tr><td><kbd>!</kbd></td>   <td>logična negacija</td></tr>
+   </table>
+   <p>
+   Logični in vrne vrednost <kbd>true</kbd> le, kadar sta in levi in desni operand enaka <kbd>true</kbd>. Logični ali vrne <kbd>true</kbd>, če je vsaj eden od obeh operandov enak <kbd>true</kbd>. Negacija je unarna operacija, ki za vrednost <kbd>true</kbd> vrne <kbd>false</kbd> in obratno. Logični operatorji delujejo tudi nad številskimi vrednostmi. Pri tem se vrednost 0 tolmači kot Boolova vrednost <kbd>false</kbd> in vrednost, ki je različna od nič, kot Boolova vrednost <kbd>true</kbd>. Poglejmo to na <a href="javascript:okno_primer('./primeri/Logicni_operatorji_master.html')">primeru</a>.
+   </p>
+   
+   <h3>Operatorji z znakovnimi nizi</h3>
+   <p>
+   Nad znakovnimi nizi delujejo v jeziku JavaScript vsi primerjalni operatorji in operator <dfn>spajanja</dfn> (<kbd>+</kbd>) (angl. concatenation). Operator spajanja se uporablja za združevanje dveh znakovnih nizov v enega. Na primer, izraz <kbd>"ne"&nbsp;+&nbsp;"verjeten"</kbd> vrne vrednost <kbd>"neverjeten"</kbd>. 
+   </p>
+   <p>
+   Primerjalni operatorji primerjajo dva niza po abecedi, pri čemer upoštevajo ASCII vrednosti znakov v nizu. Mednarodni standard ASCII predpisuje tabelo različnih znakov, kjer ima vsak znak točno določeno številsko vrednost. Zapomnimo si le, da si črke angleške abecede v tej tabeli sledijo po vrsti ter da imajo velike in male črke različne kode. Malim črkam med a in z so dodeljene kode med 97 in 122, velikim črkam med A in Z pa kode med 65 in 90. Tudi desetiške cifre so kodirane po vrsti, in sicer, cifre med 0 in 9 imajo kode med 48 in 57. 
+   </p>
+   <p>
+   Poglejmo si še <a href="javascript:okno_primer('./primeri/Operacije_z_nizi_master.html')">primere</a> različnih operacij z znakovnimi nizi.
+   </p>
+<h3>Bitni operatorji</h3>
+   <p>
+   Bitni operatorji izvajajo operacije nad dvojiškimi predstavitvami vrednosti. Takšna predstavitev števil ni čisto brez pomena, saj digitalni računalniški sistemi vse podatke hranijo izključno v dvojiškem zapisu. Kot že vemo iz osnovnošolske matematike, pozna dvojiški zapis, za razliko od desetiškega, ki uporablja cifre med 0 in 9, le vrednosti 0 in 1. Tako na primer desetiško vrednost 42 zapišemo kot 101010.
+   </p>
+   <p>
+   Ker se vrednosti hranijo v pomnilniku, ki ima hardversko določeno in nespremenljivo velikost posameznih shranjevalnih enot (pomnilniških celic), se vrednostim spredaj avtomatično doda določeno število ničel, s čimer dosežemo potrebno dolžino. Za naše potrebe bomo obravnavali vse vrednosti kot 32-mestne oziroma 32-<dfn>bitne</dfn>. Vrednost 42 lahko potemtakem zapišemo z 32 biti kot 00000000000000000000000000101010. Ker je tak zapis dolg in nepregleden, raje uporabljamo šestnajstiški zapis. V šestnajstiškem zapisu se uporabljajo cifre od 0 do 9 in črke med A in F, ki predstavljajo vrednosti med 10 in 15. V jeziku JavaScript pred vrednosti, ki so v šestnajstiškem zapisu, pišemo <kbd>0x</kbd>, da se ločijo od desetiških. Desetiško vrednost 42 zapišemo v šestnajstiškem zapisu kot <kbd>0x0000002A</kbd>. Pri tem vsaka cifra predstavlja po 4 bite.
+   </p>
+   <p>
+   Poglejmo si zdaj, katere operatorje za manipulacijo z biti pozna JavaScript. Tule je njihov spisek:
+   </p>
+   <table border="1" cellspacing="0" class="seznam">
+   <tr><th>operator</th>      <th>opis</th></tr>
+   <tr><td><kbd>&amp;</kbd></td>  <td>in</td></tr>
+   <tr><td><kbd>|</kbd></td>  <td>ali</td></tr>
+   <tr><td><kbd>~</kbd></td>   <td>komplement</td></tr>
+   <tr><td><kbd>^</kbd></td>  <td>izključno ali</td></tr>
+   <tr><td><kbd>&gt;&gt;&gt; n</kbd></td>   <td>pomik za n bitov v desno</td></tr>
+   <tr><td><kbd>&gt;&gt; n</kbd></td>   <td>pomik za n bitov v desno, z leve dodajamo najvišji bit</td></tr>
+   <tr><td><kbd>&lt;&lt; n</kbd></td>  <td>pomik za n bitov v levo</td></tr>
+   </table>
+   <p>
+   Operaciji in ter ali izvajata logični operaciji in ter ali nad istoležnimi biti obeh vpletenih vrednosti. Prvi bit prvega operanda se pari s prvim bitom drugega operanda, drugi bit prvega operanda se pari z drugim bitom drugega operanda in tako naprej. Pri tem vrednost 0 predstavlja Boolovo vrednost <kbd>false</kbd> in vrednost 1 Boolovo vrednost <kbd>true</kbd>. Na primer: vrednost izraza <kbd>0x0000000F&nbsp;&amp;&nbsp;0x0000001A</kbd> je <kbd>0x0000000A</kbd>, vrednost izraza <kbd>0x0000000F&nbsp;|&nbsp;0x0000001A</kbd> je <kbd>0x0000001F</kbd>
+   </p>
+   <p>
+   Komplement obrne (negira) vrednosti vseh bitov. Iz ničle napravi enico in obratno. Na primer: vrednost izraza <kbd>~0x0000000F</kbd> je <kbd>0xFFFFFFF0</kbd>
+   </p>
+   <p>
+   Izključna ali (angl. exclusive or) operacija je v resnici seštevanje po modulu 2. Dve ničli oziroma dve enici vrneta ničlo, če pa sta operanda različna, je rezultat operacije enica. Na primer: vrednost izraza <kbd>0x0000000F&nbsp;^&nbsp;0x0000001A</kbd> je <kbd>0x00000015</kbd>.
+   </p>
+   <p>
+    Pomik bitov v levo oziroma desno povzroči, da se vrednost z nasprotne strani polni z ničlami. Na primer: izraz <kbd>0xFFFFFFFF&nbsp;&gt;&gt;&gt;&nbsp;3</kbd> ima vrednost <kbd>0x1FFFFFFF</kbd>. Vrednost na levi strani operatorja <kbd>&gt;&gt;&gt;</kbd> se je pomaknila za tri mesta proti desni. Manjkajoča mesta na levi so se zapolnila s tremi ničlami.
+    </p>
+    <p>
+    V primeru drugega operatorja pomika v desno (<kbd>&gt;&gt;</kbd>) se vrednost z leve polni z ničlami le, če je najvišji bit enak 0, sicer se polni z enicami. Na primer: izraz <kbd>0x8000001F&nbsp;&gt;&gt;&nbsp;4</kbd> ima vrednost <kbd>0xF8000001</kbd>, izraz <kbd>0x0000001F&nbsp;&gt;&gt;&nbsp;4</kbd> pa vrednost <kbd>0x00000001</kbd>.
+   </p>
+   <p>V dvojiškem zapisu vsak pomik za eno mesto v levo v resnici predstavlja množenje z dve, podobno kot pomik v levo v desetiškem zapisu predstavlja množenje z deset. Obratno predstavlja pomik v desno deljenje z dve. Smisel ohranjanja vrednosti najvišjega bita pri pomikanju v desno izvira iz dejstva, da so negativna števila v računalniških sistemih zapisana v dvojiškem komplementu. V tem zapisu najvišji bit predstavlja predznak, ki se mora seveda pri deljenju z dve ohranjati.
+   </p>
+   <p>
+   Oglejmo si vse te <a href="javascript:okno_primer('./primeri/Bitni_operatorji_master.html')">bitne operacije</a> v živo.
+   </p>
+   <h3>Priredilni operatorji</h3>
+   <p>
+   Priredilni operator (<kbd>=</kbd>) smo že spoznali. Vemo, da ta operator vrednost izraza, ki se nahaja na njegovi desni, zapiše v spremenljivko, ki stoji na njegovi levi. Na primer, v izrazu <kbd>s&nbsp;=&nbsp;v&nbsp;*&nbsp;t</kbd> se bo spremenljivki <var>s</var> priredila vrednost izraza <kbd>v&nbsp;*&nbsp;t</kbd>. V tem primeru dobi spremenljivka <var>s</var> popolnoma novo vrednost, ne glede na njeno prejšnje stanje. Včasih pa želimo doseči relativno spremembo vrednosti spremenljivke, kot, na primer, povečanje vrednosti za 2. V tem primeru se mora ta spremenljivka pojaviti na obeh straneh priredilnega operatorja:
+   </p>
+   <pre>
+   stev_zivljenj = stev_zivljenj + 2;
+   </pre>
+   <p>
+   Za takšne primere obstajajo tako imenovani <dfn>kombinirani</dfn> priredilni operatorji, ki ponujajo dva operatorja v enem. Če združimo priredilni operator in operator seštevanja, potem dobimo kombiniran operator, s katerim lahko povečamo vrednost spremenljivke <var>stev_zivljenj</var> za 2 takole:
+   </p>
+   <pre>
+   stev_zivljenj += 2;
+   </pre>
+   <p>
+   Sledi tabela vseh priredilnih operatorjev, ki jih podpira JavaScript:
+   </p>
+   <table border="1" cellspacing="0" class="seznam">
+   <tr><th>operator</th>                  <th>opis</th></tr>
+   <tr><td><kbd>=</kbd></td>              <td>Priredi spremenljivki na levi strani operatorja <kbd>=</kbd> vrednost izraza na desni strani operatorja.</td></tr>
+   
+   <tr><td><kbd>+=</kbd></td>             <td>Spremenljivki na levi strani operatorja <kbd>+=</kbd> prišteje vrednost izraza na desni strani operatorja. Kadar ga uporabimo z znakovnimi nizi, pripne nizu na levi strani operatorja <kbd>+=</kbd> niz, ki je na desni strani operatorja.</td></tr>
+   
+   <tr><td><kbd>-=</kbd></td>             <td>Od spremenljivke na levi strani operatorja <kbd>-=</kbd> odšteje vrednost izraza na desni strani operatorja.</td></tr>
+   
+   <tr><td><kbd>*=</kbd></td>             <td>Spremenljivko na levi strani operatorja <kbd>*=</kbd> pomnoži z vrednostjo izraza na desni strani operatorja.</td></tr>
+   
+   <tr><td><kbd>/=</kbd></td>             <td>Spremenljivko na levi strani operatorja <kbd>/=</kbd> deli z vrednostjo izraza na desni strani operatorja.</td></tr>
+   
+   <tr><td><kbd>%=</kbd></td>             <td>Spremenljivka na levi strani operatorja <kbd>%=</kbd> dobi vrednost ostanka pri deljenju z vrednostjo izraza na desni strani operatorja.</td></tr>
+   
+   <tr><td><kbd>&lt;&lt;=</kbd></td>      <td>Bite v spremenljivki na levi strani operatorja <kbd>&lt;&lt;=</kbd> premakne v levo za število mest, ki so enaki vrednosti izraza na desni strani operatorja.</td></tr>
+   
+   <tr><td><kbd>&gt;&gt;=</kbd></td>      <td>Bite v spremenljivki na levi strani operatorja <kbd>&gt;&gt;=</kbd> premakne v desno za število mest, ki so enaki vrednosti izraza na desni strani operatorja. Z leve dodaja bite, ki so enaki najvišjemu bitu.</td></tr>
+   
+   <tr><td><kbd>&gt;&gt;&gt;=</kbd></td>  <td>Bite v spremenljivki na levi strani operatorja <kbd>&gt;&gt;&gt;=</kbd> premakne v desno za število mest, ki so enaki vrednosti izraza na desni strani operatorja. Z leve dodaja ničle.</td></tr>
+   
+   <tr><td><kbd>&amp;=</kbd></td>             <td>Spremenljivka na levi strani operatorja <kbd>&amp;=</kbd> dobi vrednost bitne in operacije z vrednostjo izraza na desni strani operatorja.</td></tr>
+   
+   <tr><td><kbd>|=</kbd></td>             <td>Spremenljivka na levi strani operatorja <kbd>|=</kbd> dobi vrednost bitne ali operacije z vrednostjo izraza na desni strani operatorja.</td></tr>
+   
+   <tr><td><kbd>^=</kbd></td>             <td>Spremenljivka na levi strani operatorja <kbd>^=</kbd> dobi vrednost bitne izključne ali operacije z vrednostjo izraza na desni strani operatorja.</td></tr>
+   </table>
+   <p>
+   Vrednost priredilnega izraza je enaka vrednosti, ki se zapiše v spremenljivko, ki stoji na levi strani priredilnega operatorja. Na primer, če imamo spremenljivko <var>x</var>, ki ima vrednost 3, potem je vrednost izraza <kbd>x&nbsp;-=&nbsp;4</kbd> enaka <kbd>-1</kbd>.
+   </p>
+   <p>
+   Oglejmo si še nekaj <a href="javascript:okno_primer('./primeri/Priredilni_operatorji_master.html')">primerov</a>.
+   </p>
+   <a id="ifelse" name="ifelse"></a>
+   <h3>Ternarni pogojni operator</h3>
+   <p>
+   <dfn>Pogojni</dfn> (angl. conditional) operator (<kbd>?&nbsp;:</kbd>) je ternarni operator, ker deluje nad tremi operandi: 
+   </p>
+   <table style="border-width:0;"><tr><td>
+   <pre class="syntax">
+   
+   <var>izraz1</var> ? <var>izraz2</var> : <var>izraz3</var>
+   
+   </pre>
+   </td></tr></table>
+   <p>
+   Operator najprej izračuna vrednost prvega operanda (<kbd><var>izraz1</var></kbd>), ki predstavlja <dfn>pogoj</dfn> (angl. condition). Če je izračunana vrednost enaka <kbd>true</kbd> (= pogoj je izpolnjen), potem je vrednost celotnega izraza enaka vrednosti drugega operanda (<kbd><var>izraz2</var></kbd>), sicer je enaka vrednosti tretjega operanda (<kbd><var>izraz3</var></kbd>). Naslednji <a href="javascript:okno_primer('./primeri/Pogojni_operator_master.html')">primer</a> kaže, kako lahko poiščemo večjo od dveh danih vrednosti.
+   </p>
+   <p>
+   Za pogoj lahko uporabimo tudi poljuben izraz, ki vrne številčno vrednost. Pri tem vrednost nič ustreza vrednosti <kbd>false</kbd>, vrednost različna od nič pa vrednosti <kbd>true</kbd>.
+   </p>
+   <h3>Posebni operatorji</h3>
+   <p>
+   Omenimo še nekaj posebnih operatorjev, ki jih podpira jezik JavaScript:
+   </p>
+   <dl>
+      <dt><strong>vejični (,) operator</strong></dt>
+      <dd>S tem operatorjem lahko združimo več izrazov, vrednost, ki jo operator vrne, pa je enaka vrednosti zadnjega od izrazov. Vzemimo za primer izraz <kbd>x&nbsp;=&nbsp;(y++,&nbsp;4&nbsp;+&nbsp;1)</kbd> Izračunata se oba izraza (ločena z vejičnim operatorjem na desni strani priredilnega operatorja). V prvem izrazu se spremenljivka <var>y</var> poveča za ena, spremenljivka <var>x</var> pa dobi vrednost drugega izraza (<kbd>4&nbsp;+&nbsp;1</kbd>).</dd>
+      <dt><strong>Operator <kbd>new</kbd></strong></dt>
+      <dd>S tem operatorjem ustvarimo spremenljvko objektnega tipa. Spoznali ga bomo v <a href="010.html">10. poglavju</a>.</dd>
+      <dt><strong>Operator <kbd>typeof</kbd></strong></dt>
+      <dd>Operator <kbd>typeof</kbd> vrne znakovni niz, ki opisuje podatkovni tip operanda. O podatkovnih tipih oziroma vrstah spremenljivk smo govorili v <a href="#tipi">prvi polovici</a> tega poglavja. Izraz <kbd>typeof&nbsp;42</kbd> bo na primer vrnil vrednost <kbd>"number"</kbd>.</dd>
+   </dl>
+   <p>
+   In še nekaj <a href="javascript:okno_primer('./primeri/Posebni_operatorji_master.html')">primerov</a>.
+   </p>
+   <h2>Mešanje različnih vrst vrednosti</h2>
+   <p>
+   JavaScript pozna različne vrste (tipe) vrednosti in spoznali smo, da se tipi spremenljivk spreminjajo dinamično in po potrebi, ko jim prirejamo različne vrednosti. Za konec poglavja o spremenljivkah in izrazih se nam zastavi vprašanje, kaj se pripeti, če v enem izrazu kombiniramo več spremenljivk, ki že imajo določene tipe in so ti tipi različni. JavaScript ima za takšne primere na zalogi precej kompleksen nabor pravil, na kakšen način pretvoriti določene tipe vrednosti, da se računica izide. Poglejmo si le nekaj pravil, ki v praski najpogosteje pridejo v poštev. Nekaj teh pravil smo celo že srečali:
+   </p>
+   <dl>
+      <dt><em>Na mestu, kjer se pričakuje Boolova vrednost, se pojavi številska vrednost:</em></dt>
+      <dd>To se zgodi, kadar uporabljamo številske vrednosti z logičnimi operatorji ali kot pogoj v pogojnem operatorju. Vrednost 0 se pretvori v vrednost <kbd>false</kbd>, vrednost različna od nič pa v vrednost <kbd>true</kbd>.</dd>
+   </dl>
+   <dl>
+      <dt><em>Na mestu, kjer se pričakuje številska vrednost, se pojavi Boolova vrednost:</em></dt>
+      <dd>To se zgodi, kadar nastopi Boolova vrednost v primerjalnih ali aritmetičnih operacijah. Takrat se vrednost <kbd>false</kbd> pretvori v 0, vrednost <kbd>true</kbd> pa v 1.</dd>
+   </dl>
+   <dl>
+      <dt><em>Na mestu, kjer se pričakuje znakovni niz, se pojavita Boolova ali številska vrednost:</em></dt>
+      <dd>To se zgodi, kadar uporabljamo operator spajanja (<kbd>+</kbd>). Da ta operator dejansko deluje kot operator spajanja, mora biti vsaj eden od njegovi dveh operandov znakovni niz. Vrednost, ki ni znakovni niz, se takrat pretvori v znakovni niz. Na primer, izraz <kbd>"5"&nbsp;+&nbsp;4</kbd> bo vrnil vrednost <kbd>"54"</kbd>.</dd>
+   </dl>
+   <dl>
+
+	  <dt><em>Na mestu, kjer se pričakuje številska vrednost, se pojavi znakovni niz:</em></dt>
+      <dd>To se zgodi, kadar nad znakovnimi nizi uporabljamo aritmetične operatorje (razen operatorja seštevanja, ki tu predstavlja operator spajanja). Znakovni niz se v tem primeru pretvori v številsko vrednost. Na primer, izraz <kbd>"-3"&nbsp;*&nbsp;"2"</kbd> bo vrnil vrednost -6. Izraz <kbd>"x"&nbsp;*&nbsp;"2"</kbd> bo vrnil <kbd>NaN</kbd>, kajti znakovnega niza <kbd>"x"</kbd> ni mogoče pretvoriti v številsko vrednost.</dd>	  
+   </dl>
+   <p>
+   Za konec si poglejmo še nekaj zanimivih <a href="javascript:okno_primer('./primeri/Pretvarjanje_tipov_master.html')">primerov</a>.
+   </p>
+   <h2>Povzetek</h2>
+   <p>
+   V tem poglavju smo najprej srečali element <kbd>script</kbd>, ki nam omogoča, da v dokument <acronym title="eXtended HyperText Markup Language">XHTML</acronym> vključimo programe v jeziku JavaScript. Program lahko pišemo neposredno v element <kbd>script</kbd>, ali pa vključimo program iz zunanje datoteke prek lastnosti <kbd>src</kbd>. Če brskalnik jezika JavaScript ne podpira, ali če je uporabnik podporo onemogočil, potem se izpiše vsebina elementa <kbd>noscript</kbd>. 
+   </p>
+   <p>
+   Spoznali smo vlogo spremenljivk, ki jih deklariramo s pomočjo rezervirane besede <kbd>var</kbd> in služijo pomnenju. Spremenljivkam priredimo vrednosti s priredilnim operatorjem. Iz konstant, spremenljivk, funkcij (teh še nismo spoznali) in operatorjev tvorimo izraze. Vsakemu izrazu lahko glede na vhodne operande in operatorje določimo vrednost. Če je v izrazu več operatorjev, je pomemben vrstni red, v katerem se ti izvajajo. Vrstni red izvajanja je določen s prednostno tabelo, lahko pa ga vedno spremenimo z uporabo okroglih oklepajev. Vrednosti lahko vedno izpišemo v okno brskalnika s funkcijo (oziroma postopkom) <kbd>write()</kbd> objekta <kbd>document</kbd>.
+   </p>
+   <p>
+   Spremenljivkam se z določenimi operacijami ne spreminja le vrednost, ampak tudi tip. Predvsem moramo biti pazljivi na operacije med spremenljivkami različnih tipov, ker lahko zaradi avtomatičnih pretvorb pride do nepredvidenih rezultatov. Med najbolj pogostimi in uporabnimi avtomatičnimi pretvorbami so pretvorbe med številskimi vrednostmi in vrednostmi Boolovega tipa. Pri tem ustreza ničla vrednosti <kbd>false</kbd> in enica (oziroma vrednost različna od nič) vrednosti <kbd>true</kbd>.  Še ena pogosta in uporabna pretvorba je pretvorba v znakovni niz, ki se dogaja pri spajanju znakovnega niza in podatka kakega drugega tipa.
+   </p>
+</body>
+</html>

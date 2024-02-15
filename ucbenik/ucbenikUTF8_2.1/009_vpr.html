@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+   <title>Utrjujemo snov</title>
+   <link rel="stylesheet" type="text/css"
+         href="oblika.css" />
+</head>
+<body>
+<h1>Utrjujemo snov 9. poglavja</h1>
+
+<h2>Vprašanja z izbiro</h2>
+<p>
+Pazite! Nekatera vprašanja so si zelo podobna. Vsako vprašanje pozorno preberite, čeprav se vam zdi, da ste nanj že odgovorili. Natančno razmislite, kakšen je pravilen odgovor, in nato natančno preberite tudi vse ponujene odgovore. Zlasti je pomembno, da se tega zavedate na izpitu. Če se vam zdi vprašanje znano, bodite še toliko bolj pozorni, da vas ne zavede.
+</p>
+
+<ol>
+
+   <li class="question"><strong>Kako dosežemo, da se ob dvokliku na element</strong> <kbd>p</kbd> <strong>izvede funkcija</strong> <kbd>tralala()</kbd> <strong>?</strong>
+      <ol type='a'>
+         <li><kbd>&lt;p ondblclick="tralala"&gt;   ... &lt;/p&gt;</kbd></li>
+         <li><kbd>&lt;p ondblclick="tralala()"&gt; ... &lt;/p&gt;</kbd></li>
+         <li><kbd>&lt;p&gt;&lt;ondblclick: "tralala" /&gt;  ... &lt;/p&gt;</kbd></li>
+         <li><kbd>&lt;p&gt;&lt;ondblclick: "tralala()" /&gt;  ...&lt;/p&gt;</kbd></li>
+      </ol></li>
+
+
+
+   <li class="question"><strong>Definirano imamo funkcijo</strong>
+   <pre>
+   function f(n)
+   {
+      return n >= 0 ? n : -n;
+   }</pre>
+   <strong>Kakšna bo vrednost izraza</strong> <kbd>f(-10)</kbd><strong>?</strong>
+      <ol type='a'>
+         <li><kbd>true</kbd></li>
+         <li><kbd>false</kbd></li>
+         <li>-10</li>
+         <li>10</li>
+      </ol></li>
+
+
+   <li class="question"><strong>Definirano imamo funkcijo</strong>
+   <pre>
+   function f(y)
+   {
+      if (y > 0) return y * y;
+      else return 0;
+   }</pre>
+   <strong>Kakšna je vrednost izraza</strong> <kbd>f(x - 3)</kbd><strong>, če je vrednost spremenljivke</strong> <var>x</var> <strong> tik pred klicem funkcije</strong> <kbd>f()</kbd> <strong>enaka 1?</strong>
+      <ol type='a'>
+         <li>-2</li>
+         <li>0</li>
+         <li>2</li>
+         <li>4</li>
+      </ol></li>
+
+
+         
+   <li class="question"><strong>Definirano imamo funkcijo</strong>
+   <pre>
+   function vsota(a, b)
+   {
+      return a + b;
+   }</pre>
+   <strong>Kako lahko z uporabo te funkcije seštejemo vrednosti spremenljivk <var>a</var>, <var>b</var> in <var>c</var> ter vsoto zapišemo v spremenljivko <var>x</var>?</strong>
+      <ol type='a'>
+         <li><kbd>x = vsota(a, vsota(b, c));</kbd></li>
+         <li><kbd>x = vsota(a) + vsota(b) + vsota(c);</kbd></li>
+         <li><kbd>x = vsota(a, b, c);</kbd></li>
+         <li><kbd>x = vsota(a + b + c);</kbd></li>
+      </ol></li>
+
+   <li class="question"><strong>Definirano imamo funkcijo</strong>
+   <pre>
+   function vsota(a, b)
+   {
+      return a + b;
+   }</pre>
+   <strong>Kako lahko z uporabo te funkcije seštejemo vrednosti spremenljivk <var>a</var>, <var>b</var> in <var>c</var> ter vsoto zapišemo v spremenljivko <var>x</var>?</strong>
+      <ol type='a'>
+         <li><kbd>x = vsota(a, vsota(b, vsota(c)));</kbd></li>
+         <li><kbd>x = vsota(a) + vsota(b) + vsota(c);</kbd></li>
+         <li><kbd>x = vsota(a, b, c);</kbd></li>
+         <li><kbd>x = vsota(a, b + c);</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>Definirano imamo funkcijo</strong>
+   <pre>
+   function vsota(a, b)
+   {
+      return a + b;
+   }</pre>
+   <strong>Kako lahko z uporabo te funkcije seštejemo vrednosti spremenljivk <var>a</var>, <var>b</var> in <var>c</var> ter vsoto zapišemo v spremenljivko <var>x</var>?</strong>
+      <ol type='a'>
+         <li><kbd>x = vsota(a, vsota(b, vsota(c, 0)));</kbd></li>
+         <li><kbd>x = vsota(a) + vsota(b) + vsota(c);</kbd></li>
+         <li><kbd>x = vsota(a, b, c);</kbd></li>
+         <li><kbd>x = vsota(a + b + c);</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>Definirano imamo funkcijo</strong>
+   <pre>
+   function reset()
+   {
+      status = 1;
+   }</pre>
+   <strong>Podana je še koda, ki ni sestavni del nobene funkcije:</strong>
+   <pre>
+   var status;
+   reset();
+   document.write(status);
+   status = 10;</pre>
+   <strong>Kakšno vrednost bo v oknu brskalnika izpisala funkcija</strong> <kbd>write()</kbd><strong>?</strong>
+      <ol type='a'>
+         <li>1</li>
+         <li>10</li>
+         <li><kbd>undefined</kbd></li>
+         <li><kbd>NaN</kbd></li>
+      </ol></li>
+
+   <li class="question"><strong>Definirano imamo funkcijo</strong>
+   <pre>
+   function stej()
+   {
+      var stevec;
+      stevec++;
+   }</pre>
+   <strong>Podana je še koda:</strong>
+   <pre>
+   var stevec = 0;
+   stej();
+   document.write(stevec);</pre>
+   <strong>Kakšno vrednost bo v oknu brskalnika izpisala funkcija</strong> <kbd>write()</kbd><strong>?</strong>
+      <ol type='a'>
+         <li>0</li>
+         <li>1</li>
+         <li><kbd>undefined</kbd></li>
+         <li><kbd>NaN</kbd></li>
+      </ol></li>
+
+   <li class="question"><strong>Definirano imamo funkcijo</strong>
+   <pre>
+   function stej()
+   {
+      stevec++;
+   }</pre>
+   <strong>Podana je še koda:</strong>
+   <pre>
+   var stevec;
+   stej();
+   document.write(stevec);</pre>
+   <strong>Kakšno vrednost bo v oknu brskalnika izpisala funkcija</strong> <kbd>write()</kbd><strong>?</strong>
+      <ol type='a'>
+         <li>0</li>
+         <li>1</li>
+         <li><kbd>undefined</kbd></li>
+         <li><kbd>NaN</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>Definirano imamo funkcijo</strong>
+   <pre>
+   function spremeni(j)
+   {
+      j *= 10;
+   }</pre>
+   <strong>Podana je še koda:</strong>
+   <pre>
+   var j = 10;
+   spremeni(j);
+   document.write(j);</pre>
+   <strong>Kakšno vrednost bo v oknu brskalnika izpisala funkcija</strong> <kbd>write()</kbd><strong>?</strong>
+      <ol type='a'>
+         <li>10</li>
+         <li>100</li>
+         <li><kbd>undefined</kbd></li>
+         <li><kbd>NaN</kbd></li>
+      </ol></li>
+
+</ol>
+
+<h2>V razmislek</h2>
+<p>
+Napišite definicijo funkcije <kbd>celica()</kbd>, ki bo povzročila izpis ene celice v tabeli. Funkcija naj sprejme dva argumenta. Prvi naj določa vsebino izpisane celice, drugi pa vodoravno uravnavo vsebine znotraj celice.
+</p>
+<p>
+Za lažjo predstavo: naslednja koda naj povzroči izpis tabele, kakršnega vidimo na dnu strani:
+</p>
+<pre>
+var i;
+
+document.write("&lt;table border='1' cellspacing='0'&gt;");
+
+celica("število", "sredina");
+celica("kvadrat", "sredina");
+celica("kub", "sredina");
+
+for (i = 1; i &lt;= 10; i++)
+{
+   document.write("&lt;tr&gt;");
+   celica(i, "levo");
+   celica(i * i, "desno");
+   celica(i * i * i, "desno");
+   document.write("&lt;/tr&gt;");
+}
+
+document.write("&lt;/table&gt;");</pre>
+
+<img src="./slike/funkcije.gif" alt="Kvadrati in kubi" title="Kvadrati in kubi" />
+
+<p>
+Če vam naloga povzroča težave, potem poizkusite najprej napisati kodo brez upoštevanja drugega argumenta, ki določa uravnavo besedila.
+</p>
+</body>
+</html>
+

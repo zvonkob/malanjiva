@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Izbirni_seznam.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<body>
+
+<form>
+   Izberi enega ali več avtov:
+   <br />
+   <select id="avto" name="avto" 
+      multiple="multiple" 
+      size="4">
+      <option value="audi">Audi</option>
+      <option value="fiat">Fiat</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="mazda">Mazda</option>
+      <option value="opel">Opel</option>
+      <option value="renault">Renault</option>
+      <option value="rover">Rover</option>
+      <option value="saab">Saab</option>
+      <option value="seat">Seat</option>
+      <option value="skoda">Škoda</option>
+      <option value="toyota">Toyota</option>
+      <option value="volkswagen">Volkswagen</option>
+      <option value="volvo">Volvo</option>
+   </select>
+</form>
+<p>Navodilo: če želiš iz seznama
+   izbrati več postavk, potem med
+   klikanjem drži <kbd>ctrl</kbd>
+   ali <kbd>shift</kbd>.</p>
+   
+<p>Izbriši lastnost 
+   <kbd>multiple</kbd> in poskusi
+   ponovno izbrati več postavk 
+   iz seznama. Brez te lastnosti 
+   izbira večih postavk ni možna.</p>
+   
+<p>Izbriši še lastnost 
+   <kbd>size</kbd> ali pa jo nastavi 
+   na 1. Seznam bo spremenil obliko.
+   Če je nastavljena lastnost 
+   <kbd>multiple</kbd>, mora biti
+   <kbd>size</kbd> več kot 1, sicer 
+   bodo imeli nekateri brskalniki težave.
+   Poskusi.</p>
+   
+</body>
+</html>
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

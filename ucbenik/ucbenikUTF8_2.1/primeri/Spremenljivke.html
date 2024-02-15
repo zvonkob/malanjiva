@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Spremenljivke.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<body>
+
+<script language="javascript" type="text/javascript">
+<!--
+   var x;
+   var y;
+   x = 3.7;
+   y = x + 20; 
+   document.write(y);
+   /*izbriši naslednjo vrstico
+   in opazuj učinek */
+   document.write("<br />");
+   //tu spremeni x v X:
+   document.write(x);
+// -->
+</script>
+
+<p>JavaScript loči velike in male
+   črke. Tako x zanj ni isto kot X.
+   Spremeni v zadnji vrstici programa
+   (glej opombo) <kbd>x</kbd> v 
+   <kbd>X</kbd> in opazuj učinek.
+   Dodaj spredaj deklaracijo za
+   spremenljivko <kbd>X</kbd>. Ali
+   se je kaj spremenilo?</p>
+   
+<p>Jezik JavaScript ni pretirano 
+   občutljiv na presledke. Stavek 
+   <kbd>y&amp;nbsp;=&amp;nbsp;x&amp;nbsp;+&amp;nbsp;10;</kbd>
+   lahko zapišemo na primer tudi takole:</p>
+   
+<pre>
+   y=x+10;
+</pre>
+<p>Ali pa:</p>
+<pre>
+   y
+   =
+   x
+   +
+   10
+   ;
+</pre>
+
+</body>
+</html> 
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

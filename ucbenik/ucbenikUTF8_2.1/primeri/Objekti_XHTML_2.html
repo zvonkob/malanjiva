@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Objekti_XHTML_2.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+function spremeniVelikost()
+{
+   var slikca = document.getElementById("foto");
+   var velikost = document.getElementById("izbira");
+   switch(velikost.value)
+   {
+      case "mala": slikca.width=120; break;
+      case "srednja": slikca.width=240; break;
+      case "velika": slikca.width=360; break;
+   }
+}
+// -->
+</script>
+</head>
+
+<body>
+
+<form>
+Izberi velikost slike:
+<br />
+<select name="izbira" id="izbira"
+        onchange="spremeniVelikost()">
+   <option value="mala">120x153</option>
+   <option value="srednja">240x307</option>
+   <option value="velika">360x460</option>
+</select>
+</form>
+
+<img src="../slike/dean.jpg" 
+     width="120"
+     alt="James Dean na Times Squaru"
+     title="James Dean na Times Squaru"
+     name="foto" id="foto" /><br />
+<em>Foto: Dennis Stock</em>
+
+<p>
+Izbirni seznam vsakokrat, ko se spremeni izbira,
+sproži dogodek, ki mu priredimo
+upravljalnik dogodka prek lastnosti <kbd>onchange</kbd>.
+</p>
+
+
+</body>
+</html> 
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

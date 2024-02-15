@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Tabela.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<body>
+
+<table border="1">
+   <caption align="top">
+      Tabela 15: <em>Pridelek kave in tobaka 1992
+      <br />(v 1000 t)</em>
+   </caption>
+   <tr>
+      <th></th>
+      <th>kava</th>
+      <th>tobak</th>
+   </tr>
+   <tr>
+      <th>Brazilija</th>
+      <td>1298</td>
+      <td>583</td>
+   </tr>
+   <tr>
+      <th>Kitajska</th>
+      <td>ni podatka</td>
+      <td>3177</td>
+   </tr>
+   <tr>
+      <th>Kolumbija</th>
+      <td>1050</td>
+      <td>ni podatka</td>
+   </tr>
+   <tr>
+      <th>ZDA</th>
+      <td>ni podatka</td>
+      <td>756</td>
+   </tr>
+</table>
+
+<p>Spreminjaj vrednost lastnosti <kbd>border</kbd>
+   in opazuj učinek. Ta lastnost določa debelino 
+   okvira tabele in ima lahko desetiško vrednost 
+   večjo ali enako 0. Če jo nastaviš na 0, bodo  
+   vse črte izginile.</p>
+
+<p>Lastnost <kbd>align</kbd> elementa 
+   <kbd>caption</kbd> določa, kje bo naslov tabele.
+   Vrednost <kbd>top</kbd> postavi naslov nad tabelo,
+   vrednost <kbd>bottom</kbd> pa pod njo. Ugotovi,
+   kakšen je privzet položaj naslova.</p>
+
+<p>Opazimo, da prazna celica (levo zgoraj) nima 
+   okvira. Če želiš, da se tudi okrog prazne celice 
+   nariše okvir, moraš vanjo vpisati nedeljivi 
+   presledek (<kbd>&amp;amp;nbsp;</kbd>).</p>
+   
+</body>
+</html>
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+   <title>Malo več oblike</title>
+   <link rel="stylesheet" type="text/css"
+         href="oblika.css"
+         title="Ucbenik" />
+   <script language="javascript" type="text/javascript" src="funkcije.js">
+   </script>
+</head>
+<body>
+   <h1>Malo več oblike</h1>
+   <h2>Ti mene ignoriraš?</h2>
+   <p>
+   Tisti, ki ste se malo bolj poglobili v primer iz prejšnjega poglavja, ste verjetno opazili, da se brskalnik pretirano ne ozira na obliko besedila v izvorni kodi. Stvari prikaže precej po svoje. Poigrajte se nekoliko s <a href="javascript:okno_primer('./primeri/Oblika_besedila_master.html')">primerom</a>, ki to še bolj nazorno prikazuje. Vidimo, da brskalnik vse besedilo v elementu <kbd>body</kbd> prikaže tako, da poljubno število presledkov, tabulatorjev in praznih vrstic prikaže kot en sam presledek, besedilo pa lomi, ko to doseže rob okna.
+   </p>
+   <h2>Želim popoln nadzor nad položajem!</h2>
+   <p>
+   Popolnega nadzora z jezikom <acronym title="eXtended HyperText Markup Language">XHTML</acronym> ni. To dejstvo izvira iz narave Interneta in množice brskalnikov, katerih proizvajalci so si ves čas v laseh in vsak deluje na nekoliko svojstven način. Največ, kar lahko mi, navadni avtorji spletnih strani, naredimo, je to, da se držimo priporočil, ki nam jih ponuja združenje <acronym title="World Wide Web Consortium">W3C</acronym>. 
+   </p>
+   <p>
+   Z uporabo t.i. <dfn>fizičnih</dfn> elementov sicer lahko do neke mere oblikujemo podobo naše strani, vendar je takšnih elementov malo. Minimalni mednarodno predpisani nabor elementov jezika <acronym title="eXtended HyperText Markup Language">XHTML</acronym> celo ne določa nobenega. Razlog je preprost. Dandanašnji je na tržišču vedno več najrazličnejših naprav, ki prikazujejo spletne strani. V skrajnem primeru si lahko zamislimo napravo, ki sploh nima prikazovalnika. Predstavljajte si na primer govorno napravo, ki vsebino spletne strani izgovarja. Kako naj takšna naprava izgovori mastno tiskano besedilo? Kako naj izgovori besedilo zelene barve?  V našem učbeniku bomo spoznavali izključno t.i. <dfn>logične</dfn> elemente. S temi elementi lahko določamo le pomene delov besedila in ne njihove dejanske oblike. Ta je prepuščena volji brskalnika, ki ga trenutni gledalec naše spletne strani uporablja. Če bomo pri pisanju spletnih strani upoštevali priporočila, bo naš dokument v večini popularnih brskalnikov lepo oblikovan. Za tiste, ki pa bi še vedno radi stvari oblikovali po svoje, so nastali t.i. slogi <acronym title="Cascading Style Sheets">CSS</acronym>, ki jih bomo spoznali v poglavju <a href="005.html">Stilski izziv</a>.
+   </p>
+   <p>
+   Zdaj pa poglejmo nekaj osnovnih elementov za oblikovanje besedila.
+   </p>
+   
+   <h2>Prelom vrstice</h2>
+   <p>
+      Prelom vrstice (angl. line break) lahko zahtevamo z elementom <kbd>br</kbd>. Ta element nikoli nima vsebine, zato ga uvrščamo med <dfn>prazne elemente</dfn>. Ker se mora po predpisih tudi prazen element zaključiti, bi element <kbd>br</kbd> izgledal takole: 
+   </p>
+   <pre>
+   &lt;br&gt;&lt;/br&gt;
+   </pre>
+   <p>
+   Namesto tega se za prazne elemente uporablja okrajšana oblika, kjer dodamo poševnico kar na konec začetne značke. Priporoča se, da je pred poševnico presledek:
+   </p>
+   <pre>
+   &lt;br /&gt;
+   </pre>
+   <p>
+   Drug način preloma besedila dosežemo tako, da postavimo besedilo v odstavke (angl. paragraph). Odstavek je določen z elementom <kbd>p</kbd>.
+   </p>
+   <p>
+   Naš naslednji <a href="javascript:okno_primer('./primeri/Prelom_besedila_master.html')">primer</a> kaže elementa <kbd>br</kbd> in <kbd>p</kbd> v akciji. Opazimo, da se, ne glede na širino okna brskalnika, besedilo z vsakim novim odstavkom prelomi, kot se prelomi tudi na mestu elementa <kbd>br</kbd>. Večina brskalnikov med odstavke vrine celo prazno vrstico.
+   </p>
+   <p>
+   Element <kbd>p</kbd> spada med tako imenovane <dfn>blokovske elemente</dfn> (angl. block-level element). Videli bomo, da vsi blokovski elementi pred začetkom in za koncem svoje vsebine povzročijo prelom vrstice. Drug tip elementov so <dfn>vrstični elementi</dfn> (angl. inline element), ki večinoma ne prelamljajo besedila. En tak element, ki smo ga že spoznali, je element <kbd>em</kbd>. V zvezi z vrstičnimi in blokovskimi elementi velja splošno pravilo, da blokovskih elementov ne smemo vstavljati v vrstične elemente. Tako na primer dveh poudarjenih odstavkov ne smemo zapisati tako, da jih vstavimo v element <kbd>em</kbd>, ki je vrstični element:
+   </p>
+   <pre>
+   &lt;em&gt;
+      &lt;p&gt;Prvi poudarjen odstavek.&lt;/p&gt;
+      &lt;p&gt;Drugi poudarjen odstavek.&lt;/p&gt;
+   &lt;/em&gt;
+   </pre>
+   <p>
+   Večina današnjih brskalnikov tak zapis sicer tolerira in ga celo pravilno prikaže, venar takšno gnezdenje elementov ni v skladu s pravili jezika <acronym title="eXtended HyperText Markup Language">XHTML</acronym>. Pravilna oblika gornjega zapisa je takšna:
+   </p>
+   <pre>
+   &lt;p&gt;&lt;em&gt;Prvi poudarjen odstavek.&lt;/em&gt;&lt;/p&gt;
+   &lt;p&gt;&lt;em&gt;Drugi poudarjen odstavek.&lt;/em&gt;&lt;/p&gt;
+   </pre>
+   <h2>Naslovi</h2>
+   <p>
+   Vsako spodobno besedilo ima tudi naslov (angl. heading). Jezik <acronym title="eXtended HyperText Markup Language">XHTML</acronym> pozna šest različnih nivojev naslovov in podnaslovov, ki jih vstavljamo v elemente od <kbd>h1</kbd> do <kbd>h6</kbd>. Mnogo avtorjev te elemente napačno razume kot elemente, ki zgolj naredijo besedilo večje in bolj poudarjeno. Čeprav je optični učinek na besedilo v resnici tak, pa ti elementi poleg tega izražajo tudi logično zgradbo dokumenta. Naslovi se razlikujejo po pomembnosti in tako jih brskalniki tudi prikazujejo. V splošnem je na primer naslov v elementu <kbd>h1</kbd> prikazan večji in bolj poudarjen kot naslov v elementu <kbd>h2</kbd> ali <kbd>h3</kbd>, ki je še manjši. Poigrajte se malo s <a href="javascript:okno_primer('./primeri/Naslovi_master.html')">primerom</a>.
+   </p>
+   <h2>Navedek</h2>
+   <p>
+   Navedek (angl. quotation) je del besedila, ki dobesedno navaja govorjeno ali pisano besedo, običajno kakega drugega avtorja. Jezik <acronym title="eXtended HyperText Markup Language">XHTML</acronym> določa dva elementa, ki služita navajanju besedila. Prvi je element <kbd>q</kbd>, ki je vrstični element in naj bi postavil navedeno besedilo v navednice, kakor kaže slika 2. Poznal naj bi celo pravila postavljanja navednic znotraj navednic. Vendar starejši in celo nekateri novejši brskalniki, kot na primer Internet Explorer 6.0, ne podpirajo pravilno elementa <kbd>q</kbd>. Drugi element, element <kbd>blockquote</kbd>, je blokovski element in bo zato povzročil preskok v novo vrstico. Oglejmo si <a href="javascript:okno_primer('./primeri/Navedek_master.html')">primer</a>.
+   </p>
+   <table style="border-width:0;" width="581">
+   <tr><td>
+   <img src="./slike/navednice.gif" alt="Prikaz vsebine elementa q" title="Prikaz vsebine elementa q" />
+   </td></tr>
+   <tr><td>
+   Slika 2: <em>Brskalnik Mozilla ver. 1.7.3 prikaže vsebino elementa <kbd>q</kbd> v navednicah.</em>
+   </td></tr>
+   </table>
+   <h2>Poudarjeno besedilo</h2>
+   <p>
+   Videli smo že, da lahko del besedila poudarimo z elementom <kbd>em</kbd>, katerega vsebino večina brskalnikov prikaže v ležečem tisku. Močnejši način poudarjanja dosežemo z elementom <kbd>strong</kbd> (angl. močno), kar se v večini brskalnikov pokaže v mastnem tisku. Na <a href="javascript:okno_primer('./primeri/Poudarjeno_master.html')">primeru</a> vidimo, da je možno elementa gnezditi enega v drugem, kar večinoma povzroči mastnen ležeči tisk.
+   </p>
+   <h2>Tipkano besedilo in programska koda</h2>
+   <p>
+   V dokumentih, ki opisujejo delo z računalniki, pogosto nastopajo ukazi ali kosi programske kode, ki naj jih uporabnik dobesedno vtipka. Da bi se tipkano besedilo ločilo od preostale vsebine, ga pogosto pišemo v drugačni pisavi. Tipkano besedilo vstavimo v element <kbd>kbd</kbd> (angl. keyboard = tipkovnica), katerega vsebino večina brskalnikov prikaže v enakomerno razmaknjeni pisavi (angl. monospaced font).
+   </p>
+   <p>
+   Pri prikazu programske kode je poleg oblike pisave pomembno tudi to, da se ohrani oblika besedila. Dejstvo, da brskalnik zanemari vse večkratne presledke, tabulatorje in prehode v novo vrstico, postane tu precej moteče. Kadar želimo, da se besedilo v brskalniku prikaže oblikovano točno tako, kot smo ga zapisali v izvorni kodi, z vsemi presledki in prelomi, ga postavimo v element <kbd>pre</kbd> (angl. preformatted = predoblikovan). Predoblikovanega besedila brskalnik tudi ne bo lomil, če preseže rob okna, ampak bo prikazal pomikalno palico (angl. scrollbar), s katero lahko premikamo vsebino okna, da si ogledamo tudi besedilo, ki je ušlo iz okna.
+   </p>
+   <p>
+   Tako kot tipkano besedilo, se tudi predoblikovano besedilo v večini brskalnikov prikaže v enakomerno razmaknjeni pisavi. Znotraj elementa <kbd>pre</kbd> je dovoljeno uporabiti nekatere preproste elemente za oblikovanje besedila, kot sta na primer <kbd>em</kbd> in <kbd>strong</kbd>. <a href="javascript:okno_primer('./primeri/Tipkano_master.html')">Tule</a> je primer.
+   </p>
+   <h2>Spremenljivke</h2>
+   <p>
+   Z elementom <kbd>var</kbd> označimo spremenljivko, ki se pojavi v matematičnem izrazu ali programski kodi. Vsebovano besedilo se običajno prikaže v ležečem tisku. Na primer, zapis
+   </p>
+   <p style="margin-left:30px">
+   <kbd>Spremenljivki &lt;var&gt;x&lt;/var&gt; priredimo vrednost 42</kbd>
+   </p>
+   <p>
+   brskalnik prikaže kot 
+   </p>
+   <p style="margin-left:30px">
+   Spremenljivki <var>x</var> priredimo vrednost 42.
+   </p>
+   <h2>Posebni znaki</h2>   
+   <p>Določenih znakov ni na tipkovnici, ali pa imajo v jeziku XHTML poseben pomen. V prejšnjem primeru Kosovelove pesmi smo naleteli na dva takšna znaka: <kbd>&lt;</kbd> in <kbd>&infin;</kbd>, ki smo ju morali zapisati z ustrezno kratico. Spredaj smo postavili znak &amp;, zadaj pa podpičje. Znak <kbd>&lt;</kbd> bi se sicer prikazal tudi, če bi ga v besedilu zapisali takšnega kot je, vendar le, dokler se za njim ne pojavi znak <kbd>&gt;</kbd>. Takšen par znakov brskalnik tolmači kot značko. 
+   </p>
+   <p>
+   Znakov, ki jih ni na tipkovnici, in jih je možno prikazovati, je ogromno in jih tu ne bomo navajali. Tabele z vsemi znaki bo bralec našel v <a href="110.html">literaturi</a>. Tukaj naštejmo le posebne znake, ki so rezervirani znaki jezika <acronym title="eXtended HyperText Markup Language">XHTML</acronym> in jih brskalnik pogosto ne prikaže dobesedno. Ti znaki so:
+   </p>
+   <table border="1" cellpadding="5">
+      <tr>
+         <th>zapis znaka</th>
+         <th>angl. ime</th>
+         <th>se prikaže kot</th>
+      </tr>
+      <tr>
+         <td>&amp;amp;</td>
+         <td>ampersand</td>
+         <td>&amp;</td>
+      </tr>
+      <tr>
+         <td>&amp;lt;</td>
+         <td>lower than</td>
+         <td>&lt;</td>
+      </tr>
+      <tr>
+         <td>&amp;gt;</td>
+         <td>greater than</td>
+         <td>&gt;</td>
+      </tr>
+      <tr>
+         <td>&amp;quot;</td>
+         <td>quotation</td>
+         <td>&quot;</td>
+      </tr>
+      <tr>
+         <td>&amp;nbsp;</td>
+         <td>non-breakable space</td>
+         <td>nelomljivi presledek</td>
+      </tr>
+   </table>
+   <p>
+   Poglejmo si še <a href="javascript:okno_primer('./primeri/Posebni_znaki_master.html')">primer</a>.
+   </p>
+   <h2>Povzetek</h2>
+   <p>
+   Brskalniki ob prikazu vsebine elementa <kbd>body</kbd> strnejo vsakršno zaporedje presledkov, tabulatorjev in praznih vrstic v en sam presledek. Če želimo obliko besedila ohraniti, ga vstavimo v element <kbd>pre</kbd>. Na voljo je tudi precej drugih elementov za oblikovanje besedila, od katerih vrstični elementi večinoma ne vplivajo na prelom besedila, blokovski elementi pa ob svojem začetku in koncu vstavijo prelom vrstice. Za prelom vrstice lahko uporabimo tudi prazen element <kbd>br</kbd>.
+   </p>
+   <p>
+   Prazni elementi nimajo vsebine, vseeno pa morajo biti zaključeni. Namesto z zaključno značko, jih zaključimo tako, da na konec začetne značke dodamo poševnico. Priporoča se, da je pred poševnico presledek.
+   </p>
+   <p>
+   Rezerviranih in posebnih znakov brskalnik <acronym title="eXtended HyperText Markup Language">XHTML</acronym> pogosto ne prikaže. Če želimo, da se ti znaki prikažejo v brskalniku, jih moramo zapisati z ustrezno kodo.
+   </p>
+   <p>
+   Vsi elementi, ki jih obravnava ta učbenik, so povzeti v <a href="javascript:okno_tabela('./tabele/Tabela_vseh_elementov.html')">tabeli</a>.
+   </p>
+</body>
+</html>

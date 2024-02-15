@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Objekt_Date.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<body>
+
+<script language="javascript" type="text/javascript">
+<!--
+var datum = new Date();
+var dnevi = new Array(
+               "nedeljo",
+               "ponedeljek", 
+               "torek", 
+               "sredo", 
+               "četrtek", 
+               "petek", 
+               "soboto" 
+               );
+document.write("Ta stran se je naložila v ");               
+/*getDay() vrne zaporedno številko dneva
+v tednu. Začne z nedeljo, ki ima zap. št. 0,
+sledi ponedeljek z 1, itd.: */
+document.write(dnevi[datum.getDay()] + ", ");
+document.write(datum.getDate() + ". ");               
+document.write(datum.getMonth() + 1 + ". ");               
+document.write(datum.getFullYear() + " ob ");               
+document.write(datum.getHours() + ":");               
+document.write(datum.getMinutes() + ":");               
+document.write(datum.getSeconds());               
+// -->
+</script>
+
+<p>
+Pri izpisu minut in sekund se za eno mestne 
+vrednosti spredaj ne izpiše ničla. Tako se, na
+primer, deseta ura, pet minut in devet sekund
+izpiše kot <kbd>10:5:9</kbd>, namesto 
+<kbd>10:05:09</kbd>. Popravi program, da
+bo pravilno izpisoval tudi takšne ure.
+</p>
+<p>
+Dopolni program, da se bo tudi mesec izpisal
+z besedo. Postopek <kbd>getMonth()</kbd>, podobno
+kot postopek <kbd>getDay()</kbd>, vrne
+zaporedno številko meseca, začenši z 0.
+</p>
+
+</body>
+</html> 
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

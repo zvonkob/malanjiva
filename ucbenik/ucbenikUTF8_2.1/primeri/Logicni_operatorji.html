@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Logicni_operatorji.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<body>
+
+<script language="javascript" type="text/javascript">
+<!--
+   document.write("<pre>false &amp;&amp; false = ");
+   document.write(false && false);
+   document.write("<br />false &amp;&amp; true  = ");
+   document.write(false && true);
+   document.write("<br />true  &amp;&amp; false = ");
+   document.write(true && false);
+   document.write("<br />true  &amp;&amp; true  = ");
+   document.write(true && true);
+
+   document.write("<br />");
+   document.write("<br />!true = ");
+   document.write(!true);
+
+   document.write("</pre>");
+// -->
+</script>
+
+<p>Zamenjaj operatorje <kbd>&amp;amp;&amp;amp;</kbd> z 
+   operatorji <kbd>||</kbd> in opazuj
+   učinek. Zamenjaj Boolove vrednosti 
+   <kbd>true</kbd> in <kbd>false</kbd> z 
+   različnimi številskimi vrednostmi  
+   in opazuj učinek. Vrednost nič ustreza
+   vrednosti <kbd>false</kbd>, vrednost
+   različna od nič pa vrednosti <kbd>true</kbd>.</p>
+
+</body>
+</html> 
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

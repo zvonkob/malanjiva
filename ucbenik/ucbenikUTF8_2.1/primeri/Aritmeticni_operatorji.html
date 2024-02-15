@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+<title>Urejanje kode</title>
+<script language="javascript" type="text/javascript">
+<!--
+function nalozi()
+{
+   parent.izpis.document.open();
+   parent.izpis.document.write(document.vnosKode.koda.value);
+   parent.izpis.document.close();
+}
+function zacetnoStanje()
+{
+	location="Aritmeticni_operatorji.html";
+}
+// -->
+</script>
+
+</head>
+<body bgcolor="lightgrey">
+<form id="vnosKode" name="vnosKode">
+<table border="0" width="100%">
+<tr>
+<td colspan="2">
+<em>Spremeni kodo in klikni "Naloži stran"</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<textarea style="width:100%;height:513px;" id="koda" name="koda" rows="25" cols="34" wrap="off">
+<html>
+<body>
+
+<script language="javascript" type="text/javascript">
+<!--
+   var x;
+   var y;
+   x = 42;
+   document.write("x = ");
+   document.write(x);
+   document.write("<br />");
+   document.write("-x + 5 = ");
+   document.write(-x + 5);
+   document.write("<br />");
+   document.write("x se ni spremenil: ");
+   document.write(x);
+   document.write("<br />");
+   y = x--;
+   document.write("x se je spremenil: ");
+   document.write(x);
+   document.write("<br />");
+   /*y je dobil staro vrednost
+     spremenljivke x (x se 
+     zmanjša po uporabi)*/
+   document.write("y = ");
+   document.write(y);
+   document.write("<br />");
+   y = 4;
+   document.write("y = ");
+   document.write(y);
+   document.write("<br />");
+   document.write("(10 + y) % 3 =");
+   document.write((10 + y) % 3);
+// -->
+</script>
+
+<p>Prestavi operator <kbd>--</kbd>
+   v 13. vrstici programa na levo
+   stran spremenljivke <var>x</var> 
+   in opazuj spremembo.</p>
+   
+<p>Oklepaji lahko spremenijo vrstni 
+   red izvajanja operatorjev. V 
+   zadnji vrstici programa se
+   najprej izračuna vrednost izraza 
+   <kbd>10 + y</kbd>, ki je 14. 
+   Nato se izračuna in izpiše 
+   ostanek deljenja te vrednosti s 
+   3. Odstrani oklepaje okrog izraza
+   <kbd>10 + y</kbd> in opazuj 
+   spremembo. Ali znaš pojasniti,
+   kaj se je zgodilo?</p>
+
+</body>
+</html> 
+</textarea>
+</td>
+</tr>
+<tr>
+<td><input id="wiewresult" name="wiewresult", type="button" value="Naloži stran" onClick="nalozi()" /></td>
+<td align="right"><input type="button" value="Reset" onClick="zacetnoStanje()" /></td>
+</tr>
+</table>
+</form>
+<script language="javascript" type="text/javascript">
+<!--
+   nalozi();
+// -->
+</script>
+</body>
+</html>

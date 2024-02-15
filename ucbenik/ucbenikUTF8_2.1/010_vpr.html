@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl">
+<head>
+   <title>Utrjujemo snov</title>
+   <link rel="stylesheet" type="text/css"
+         href="oblika.css" />
+</head>
+<body>
+<h1>Utrjujemo snov 10. poglavja</h1>
+
+<h2>Vprašanja z izbiro</h2>
+<ol>
+
+
+   <li class="question"><strong>Objekt</strong> <kbd>document</kbd> <strong>ima lastnost</strong> <kbd>bgColor</kbd><strong>, ki predstavlja barvo ozadja. Kako nastavimo barvo ozadja na modro (angl. blue)?</strong>
+      <ol type='a'>
+         <li><kbd>document.bgColor("blue");</kbd></li>
+         <li><kbd>document.bgColor = "blue";</kbd></li>
+         <li><kbd>document(bgColor = "blue");</kbd></li>
+         <li><kbd>document(bgColor("blue"));</kbd></li>
+      </ol></li>
+
+
+
+   <li class="question"><strong>Objekt</strong> <kbd>Math</kbd> <strong>ima postopek</strong> <kbd>random()</kbd><strong>, ki vrne naključno vrednost med 0 in 1. Kako priredimo to vrednost spremenljivki <var>ugani</var>?</strong>
+      <ol type='a'>
+         <li><kbd>ugani = Math.random();</kbd></li>
+         <li><kbd>ugani = Math.random;</kbd></li>
+         <li><kbd>ugani.Math.random();</kbd></li>
+         <li><kbd>ugani.Math.random;</kbd></li>
+      </ol></li>
+
+   <li class="question"><strong>Kateri klic postopka</strong> <kbd>confirm()</kbd> <strong>objekta </strong> <kbd>window</kbd> <strong> je pravilen?</strong>
+      <ol type='a'>
+         <li><kbd>window.confirm = "Ste prepričani?";</kbd></li>
+         <li><kbd>confirm("Ste prepričani?");</kbd></li>
+         <li><kbd>confirm = "Ste prepričani?";</kbd></li>
+         <li><kbd>confirm.window("Ste prepričani?");</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>Kako ustvarimo objekt tipa</strong> <kbd>Array</kbd> <strong>?</strong>
+      <ol type='a'>
+         <li><kbd>zbirka = Array();</kbd></li>
+         <li><kbd>zbirka = new Array;</kbd></li>
+         <li><kbd>zbirka = new Array();</kbd></li>
+         <li><kbd>zbirka = Array;</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>V naloženem dokumentu imamo urejevalno polje z lastnostjo</strong> <kbd>id="vpis"</kbd> <strong>Kako dosežemo, da se v polje vpiše beseda "OK"?</strong>
+      <ol type='a'>
+         <li><kbd>getElementById("vpis").value = "OK";</kbd></li>
+         <li><kbd>document.getElementById("vpis").value = "OK";</kbd></li>
+         <li><kbd>document.getElementById("vpis") = "OK";</kbd></li>
+         <li><kbd>getElementById("vpis") = "OK";</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>Podana je koda</strong> <kbd>seznam = new Array("1", 2);</kbd> <strong>Kakšno vrednost bo imel izraz</strong> <kbd>seznam[0] + seznam[1]</kbd><strong>?</strong>
+      <ol type='a'>
+         <li>3</li>
+         <li>"12"</li>
+         <li><kbd>undefined</kbd></li>
+         <li><kbd>NaN</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>Podana je koda</strong>
+   <pre>
+   vhod = new Array(1, 1, 0, 3, 5);
+   for (i = 0; i &lt; vhod.length; i++)
+   {
+      izhod[vhod[i]] = vhod[i];
+   }</pre>
+   <strong>Kakšna bo vsebina zbirke</strong> <kbd>izhod</kbd><strong>, ko se bo zaključil stavek</strong> <kbd>for</kbd><strong>?</strong>
+      <ol type='a'> 
+         <li><kbd>(1, 1, 0, 3, 5)</kbd></li>
+         <li><kbd>(0, 1, 3, 5)</kbd></li>
+         <li><kbd>(0, 1, undefined, 3, undefined, 5)</kbd></li>
+         <li><kbd>(2, 1, undefined, 3, undefined, 4)</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>Podana je koda</strong>
+   <pre>
+   vhod = new Array(1, 1, 0, 3, 5);
+   for (i = 0; i &lt; vhod.length; i++)
+   {
+      izhod[vhod[i]] = i;
+   }</pre>
+   <strong>Kakšna bo vsebina zbirke</strong> <kbd>izhod</kbd><strong>, ko se bo zaključil stavek</strong> <kbd>for</kbd><strong>?</strong>
+      <ol type='a'> 
+         <li><kbd>(1, 1, 0, 3, 5)</kbd></li>
+         <li><kbd>(0, 1, 3, 5)</kbd></li>
+         <li><kbd>(0, 1, undefined, 3, undefined, 5)</kbd></li>
+         <li><kbd>(2, 1, undefined, 3, undefined, 4)</kbd></li>
+      </ol></li>
+
+   <li class="question"><strong>Podana je koda</strong>
+   <pre>
+   str1 = "neki";
+   str2 = str1 + " še neki";</pre>
+   <strong>Kakšna bo vrednost izraza</strong> <kbd>str2.length</kbd><strong>?</strong>
+      <ol type='a'> 
+         <li>4</li> 
+         <li>6</li>
+         <li>10</li>
+         <li>12</li>
+      </ol></li>
+
+
+   <li class="question"><strong>Podana je koda</strong>
+   <pre>
+   obrazec = "UB40";
+   obrazec = obrazec.toLowerCase();</pre>
+   <strong>Kakšna bo vrednost spremenljivke <var>obrazec</var>, ko se koda izvrši?</strong>
+      <ol type='a'> 
+         <li><kbd>ub</kbd></li>
+         <li><kbd>ub40</kbd></li>
+         <li><kbd>UB</kbd></li>
+         <li><kbd>UB40</kbd></li>
+      </ol></li>
+
+   <li class="question"><strong>Podana je koda</strong>
+   <pre>
+   str = "abcdefgh";
+   pozicija = str.indexOf("cd");</pre>
+   <strong>Kakšna bo vrednost spremenljivke <var>pozicija</var>, ko se koda izvrši?</strong>
+      <ol type='a'> 
+         <li><kbd>"ab"</kbd></li>
+         <li><kbd>"cdefgh"</kbd></li>
+         <li>2</li>
+         <li>3</li>
+      </ol></li>
+
+
+   <li class="question"><strong>Podana je koda</strong>
+   <pre>
+   str = "abcdefgh";
+   pozicija = str.indexOf("CD");</pre>
+   <strong>Kakšna bo vrednost spremenljivke <var>pozicija</var>, ko se koda izvrši?</strong>
+      <ol type='a'> 
+         <li><kbd>null</kbd></li>
+         <li>-1</li>
+         <li>2</li>
+         <li>3</li>
+      </ol></li>
+
+   <li class="question"><strong>Podana je koda</strong>
+   <pre>
+   str1 = "otorinolaringolog";
+   str2 = str1.substring(3,7);</pre>
+   <strong>Kakšna bo vrednost spremenljivke <var>str2</var>, ko se koda izvrši?</strong>
+      <ol type='a'> 
+         <li><kbd>"rino"</kbd></li>
+         <li><kbd>"rinolar"</kbd></li>
+         <li><kbd>"rl"</kbd></li>
+         <li><kbd>"oto,otorino"</kbd></li>
+      </ol></li>
+
+
+   <li class="question"><strong>Podana je koda</strong>
+   <pre>
+   var y = 2.7;
+   x = Math.ceil(y) - Math.floor(y);</pre>
+   <strong>Kakšna bo vrednost spremenljivke <var>x</var>, ko se koda izvrši?</strong>
+      <ol type='a'> 
+         <li>-1</li>
+         <li>0</li>
+         <li>1</li>
+         <li>2</li>
+      </ol></li>
+
+   <li class="question"><strong>Podana je koda</strong>
+   <pre>
+   var y = 3;
+   x = Math.pow(y, 2);</pre>
+   <strong>Kakšna bo vrednost spremenljivke <var>x</var>, ko se koda izvrši?</strong>
+      <ol type='a'> 
+         <li>5</li>
+         <li>6</li>
+         <li>8</li>
+         <li>9</li>
+      </ol></li>
+
+   <li class="question"><strong>Podana je koda</strong>
+   <pre>
+   var y = -3;
+   x = Math.pow(y, Math.max(y, 0));</pre>
+   <strong>Kakšna bo vrednost spremenljivke <var>x</var>, ko se koda izvrši?</strong>
+      <ol type='a'> 
+         <li>0</li>
+         <li>1</li>
+         <li>27</li>
+         <li>-1/27</li>
+      </ol></li>
+         
+
+</ol>
+
+<h2>V razmislek</h2>
+<p>
+Izdelajte spletno stran, ki bo omogočala uporabniku, da v polje za vnos besedila vpiše nekaj številskih vrednosti, ki morajo biti ločene z vejicami. Ob pritisku na gumb naj se izračuna srednja vrednost vseh vnešenih števil. Izračunana vrednost naj se skupaj z največjo in najmanjšo vrednostjo izpiše na dnu strani. Za boljšo predstavo spodnja slika prikazuje, kako naj stran izgleda.
+</p>
+<img src="./slike/statistika.gif" alt="Povprečje" title="Povprečje" />
+<p>
+Pomoč: iz polja za vnos besedila dobimo podatek v obliki znakovnega niza. Tega najprej s postopkom <kbd>split()</kbd> razbijemo na zbirko znakovnih nizev. Pred seštevanjem morate vsak niz posebej pretvoriti v številsko vrednost (s funkcijo <kbd>parseFloat()</kbd> ali <kbd>parseInt()</kbd>), sicer se vrednosti ne bodo seštele, ampak se bodo zlepile v niz, kakršen je bil na začetku, le brez vejic. Izpis rezultatov dosežete s pomočjo lastnosti <kbd>innerHTML</kbd>.
+</p>
+</body>
+</html>
+
