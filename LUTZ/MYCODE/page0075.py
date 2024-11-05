@@ -1,0 +1,1 @@
+print('Moja mala Marijana')
