@@ -1,14 +1,12 @@
-import sys
 
+import sys
 
 dbfilename = 'people-file'
 ENDDB = 'enddb.'
 ENDREC = 'endrec.'
 RECSEP = '=>'
 
-
 def storeDbase(db, dbfilename=dbfilename):
-    
     "formated dump of database to flat file"
     if dbfilename == None:
         dbfile = sys.stdout
@@ -38,14 +36,13 @@ def loadDbase(dbfilename=dbfilename):
         db[key] = rec
         key = input()
     return db
-
     
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # from initdata import db
     # storeDbase(db, 'file01.txt')
     #
     # db = loadDbase('file01.txt')
     # storeDbase(db, 'file02.txt')
     #
-    db = loadDbase('file02.txt')
-    storeDbase(db, dbfilename=None)
+    # db = loadDbase('file02.txt')
+    # storeDbase(db, dbfilename=None)
