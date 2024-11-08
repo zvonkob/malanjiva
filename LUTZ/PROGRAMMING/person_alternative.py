@@ -16,24 +16,24 @@ class Person:
     def __add__(self, percent):
         self.giveRaise(percent)
         return self
-        
+
+class Manager(Person):
+    def __init__(self, name, age, pay):
+        Person.__init__(self, name, age, pay, job='manager')
+    # def giveRaise(self, percent, bonus=0.1):
+        # self.pay *= (1. + percent + bonus) 
+    def giveRaise(self, percent, bonus=0.1):
+        Person.giveRaise(self, percent + bonus)
 
 if __name__ == '__main__':
-    
-    bob = Person('Bob Smith', 42, 30_000, 'software')
-    # sue = Person('Sue Jones', 45, 40_000, 'hardware')
-    
-    # print(bob.name, sue.pay)
-    # print(bob.lastName())
-    # sue.giveRaise(.10)
-    # print(sue.pay)
-    
-    print(bob)
-    
-    bob += 0.20
-    
-    print(bob)
+    bob = Person('Bob Smith', 44)
+    sue = Person('Sue Jones', 47, 40_000, 'hardware')
+    tom = Manager(name='Tom Doe', age=50, pay=50_000)
     
     # print(sue)
-   
-    
+    # print(sue.pay, sue.lastName())
+    for obj in (bob, sue, tom):
+        print()
+        print(obj)
+        obj.giveRaise(.10)
+        print(obj)
