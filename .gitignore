@@ -4,6 +4,11 @@
 .git
 .gitignore
 
+
+.venv/
+venv/
+.idea/
+
 *.pyc
 *.7z
 *.zip
